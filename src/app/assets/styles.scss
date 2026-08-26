@@ -1,5 +1,10 @@
 @use "fonts";
 @use "normailze";
+
+* {
+  font-family: 'Nunito Sans', serif;
+}
+
 :root {
   --primary-font-color: #18121E;
   --nverted-font-color: #FDFDFD;
@@ -16,10 +21,6 @@
 
   --primary-button-color: #18121E;
   --nverted-button-color: #FDFDFD;
-  --button-border-radius: 4 px;
+  --small-border-radius: 4px;
 
-}
-
-* {
-  font-family: 'Nunito Sans';
 }

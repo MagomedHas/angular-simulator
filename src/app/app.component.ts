@@ -8,5 +8,5 @@ import './training';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
+  companyName: string = 'РУМТИБЕТ';
 }
