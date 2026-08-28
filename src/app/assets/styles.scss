@@ -7,7 +7,7 @@
 
 :root {
   --primary-font-color: #18121E;
-  --nverted-font-color: #FDFDFD;
+  --inverted-font-color: #FDFDFD;
   --secondary-font-color: #F2BE22;
   --link-font-color: #1A3E3E;
 
@@ -18,9 +18,10 @@
 
   --primary-block-color: #ffffff;
   --secondary-block-color: #F3F5F4;
+  --search-block-color: #FFFFFF33;
 
-  --primary-button-color: #18121E;
-  --nverted-button-color: #FDFDFD;
+  --font-button-color: #FDFDFD;
+  --background-button-color: #1A3E3E;
+
   --small-border-radius: 4px;
-
 }
