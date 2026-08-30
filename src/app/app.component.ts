@@ -31,7 +31,7 @@ export class AppComponent {
     }
   }
 
-  setLastLogin() {
+  setLastLogin(): void {
     const date = new Date();
     localStorage.setItem('lastLogin', date.toString());
   }
