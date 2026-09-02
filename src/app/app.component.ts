@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   incrementPageView(): void {
-    let pageView =  Number(localStorage.getItem('pageView'))
+    let pageView: number =  Number(localStorage.getItem('pageView'))
     if (pageView) {
       pageView++;
       localStorage.setItem('pageView', pageView.toString());
