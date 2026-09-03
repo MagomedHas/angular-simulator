@@ -8,7 +8,6 @@ import {Color} from '../enums/Color';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
 
