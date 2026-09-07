@@ -1,1 +1,63 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="header__inner container">
+    <div class="header__logo">
+      <img src="/icon/logo_icon.svg" alt="РУМТИБЕТ">
+      <p>{{ companyName }}</p>
+    </div>
+    <nav>
+      <ol class="header__nav">
+        <li><a src="/">Главная</a></li>
+        <li>
+          <a src="/">Про гида</a>
+        </li>
+        <li>
+          <a src="/">Программа тура</a>
+        </li>
+        <li>
+          <a src="/">Стоимость</a>
+        </li>
+        <li>
+          <a src="/">Блог</a>
+        </li>
+        <li>
+          <a src="/">Контакты</a>
+        </li>
+      </ol>
+    </nav>
+    <button class="header__button inverted-button">Консультация</button>
+  </div>
+</header>
+<section class="search">
+  <div class="container">
+    <h1 class="search__title">
+      Насладись прогулкой в горах<br>с командой единомышленников
+    </h1>
+    <div class="search__inner">
+      <form class="search__form" id="search__form">
+        <div class="search__cell">
+          <select name="location" id="location" required>
+            <option value="" disabled selected>Локация для тура</option>
+          </select>
+          <label for="location">выберите из списка</label>
+        </div>
+        <div class="search__cell">
+          <input
+            type="date"
+            name="hike_date"
+            id="hike_date"
+            class="hike_date"
+            required
+          />
+          <label for="hike_date">укажите дату</label>
+        </div>
+        <div class="search__cell">
+          <select name="participants" id="participants" required>
+            <option value="" disabled selected>Участники</option>
+          </select>
+          <label for="participants">выберите из списка</label>
+        </div>
+        <button class="primary-button">Найти программу</button>
+      </form>
+    </div>
+  </div>
+</section>

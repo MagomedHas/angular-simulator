@@ -1,0 +1,171 @@
+a {
+  cursor: pointer;
+}
+
+.header {
+  background-color: var(--header-color);
+  height: 120px;
+  box-shadow: 0 2px 4px 0 #00000040;
+  position: fixed;
+
+  width: 100%;
+
+  .header__inner {
+    height: 100%;
+    display: grid;
+    grid-template-columns:  1fr auto 1fr;
+    align-items: center;
+
+  }
+
+  .header__logo {
+    justify-items: end;
+    width: 138px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--inverted-font-color);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 100%;
+    letter-spacing: 40%;
+  }
+
+  .header__nav {
+    color: var(--inverted-font-color);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+
+  }
+
+  .header__button {
+    justify-self: end;
+  }
+}
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
+}
+
+.search {
+  background-image: url("/background/mountains.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 985px;
+  padding-top: 551px;
+  color: var(--inverted-font-color);
+
+
+  .search__title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 150%;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+
+  }
+
+  .search__inner {
+    height: 161px;
+    background-color: var(--search-block-color);
+    border-radius: 10px;
+    margin-top: 41px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search__form {
+    display: flex;
+    gap: 24px;
+  }
+
+  label {
+    display: block;
+    margin: 8px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  select,
+  .hike_date {
+    background-repeat: no-repeat;
+    background-position: right 17px center;
+    position: relative;
+    width: 270px;
+    height: 52px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    border: 1px solid;
+    border-radius: 8px;
+    align-items: center;
+    padding-inline: 16px 36px;
+  }
+
+  select {
+    background-image: url("/icon/arrow-select_icon.svg");
+  }
+
+  .hike_date::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: 17px;
+    bottom: 17px;
+    cursor: pointer;
+  }
+
+  .hike_date {
+    color: transparent;
+    border-color: var(--inverted-font-color);
+    background-image: url("/icon/calendar_icon.svg");
+  }
+
+  .hike_date:focus,
+  .hike_date:valid {
+    color: var(--inverted-font-color);
+  }
+
+  .hike_date::before {
+    position: absolute;
+    content: "Дата похода";
+    color: var(--inverted-font-color);
+    pointer-events: none;
+  }
+
+  .hike_date:focus::before,
+  .hike_date:valid::before {
+    display: none;
+  }
+}
+
+.primary-button {
+  width: fit-content;
+  height: fit-content;
+  padding: 16px 36px;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: var(--background-button-color);
+  color: var(--font-button-color);
+  border-radius: var(--small-border-radius);
+}
+
+.inverted-button {
+  width: fit-content;
+  height: fit-content;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1.2%;
+  background-color: var(--font-button-color);
+  color: var(--background-button-color);
+  border-radius: var(--small-border-radius);
+}

@@ -1,0 +1,27 @@
+@use "fonts";
+@use "normailze";
+
+* {
+  font-family: 'Nunito Sans', serif;
+}
+
+:root {
+  --primary-font-color: #18121E;
+  --inverted-font-color: #FDFDFD;
+  --secondary-font-color: #F2BE22;
+  --link-font-color: #1A3E3E;
+
+  --header-color: #18121E80;
+
+  --footer-color: #1A3E3E;
+  --below-footer-color: #18121E;
+
+  --primary-block-color: #ffffff;
+  --secondary-block-color: #F3F5F4;
+  --search-block-color: #FFFFFF33;
+
+  --font-button-color: #FDFDFD;
+  --background-button-color: #1A3E3E;
+
+  --small-border-radius: 4px;
+}
