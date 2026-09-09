@@ -2,6 +2,28 @@ import { Component } from '@angular/core';
 import './training';
 import {Color} from '../enums/Color';
 
+class Service {
+  private static nextId = 0;
+  private path: string = '/images/offer';
+  private format: string = 'png';
+  id: number;
+  image: string;
+  title: string;
+  text: string;
+  src: string
+  constructor(
+  image: string,
+  title: string,
+  text: string,
+ ) {
+    this.id = Service.nextId++;
+    this.image = image;
+    this.title = title;
+    this.text = text;
+    this.src = this.path + '/' + image + '.' + this.format;
+}
+}
+
 @Component({
   selector: 'app-root',
   imports: [],
@@ -10,6 +32,26 @@ import {Color} from '../enums/Color';
 })
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
+
+  services: Service[] = [
+    new Service(
+      'guide',
+      'Опытный гид',
+      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+    ),
+
+    new Service(
+      'shield',
+       'Безопасный поход',
+      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    ),
+
+    new Service(
+      'tag',
+      'Опытный гид',
+      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+    )
+  ]
 
   constructor() {
     this.setLastLogin();
