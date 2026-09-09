@@ -1,6 +1,11 @@
 @use "fonts";
 @use "normailze";
+@use "button";
 
+@use "header";
+@use "search";
+@use "hike";
+@use "offer";
 * {
   font-family: 'Nunito Sans', serif;
 }
