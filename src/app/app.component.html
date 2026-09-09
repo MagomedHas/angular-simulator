@@ -35,10 +35,17 @@
         Насладись прогулкой в горах<br>с командой единомышленников
       </h1>
       <div class="search__inner">
-        <form class="search__form" id="search__form">
+        <form class="search__form" id="search__form"
+              (change)="checkHikeSearchForm()" >
           <div class="search__cell">
-            <select name="location" id="location" required>
+            <select
+              name="location"
+              id="location"
+              [(ngModel)]="hikeSearchForm.tour"
+              required>
               <option value="" disabled selected>Локация для тура</option>
+              <option value="1">тур 1</option>
+              <option value="2">тур 2</option>
             </select>
             <label for="location">выберите из списка</label>
           </div>
@@ -48,17 +55,29 @@
               name="hike_date"
               id="hike_date"
               class="hike_date"
+              [(ngModel)]="hikeSearchForm.date"
               required
             />
             <label for="hike_date">укажите дату</label>
           </div>
           <div class="search__cell">
-            <select name="participants" id="participants" required>
+            <select
+              name="participants"
+              id="participants"
+              [(ngModel)]="hikeSearchForm.participants"
+              size="1"
+              multiple
+              required>
               <option value="" disabled selected>Участники</option>
+              <option value="1">Участники</option>
+              <option value="2">Участники</option>
+              <option value="22">Участники</option>
+              <option value="12">Участники</option>
+              <option value="3">Участники</option>
             </select>
-            <label for="participants">выберите из списка</label>
+            <label for="participants">минимум 4 человека</label>
           </div>
-          <button class="primary-button">Найти программу</button>
+          <button [class]="hikeSearchForm.classButton">Найти программу</button>
         </form>
       </div>
     </div>

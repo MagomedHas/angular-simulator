@@ -96,6 +96,7 @@ a {
   .hike_date {
     background-repeat: no-repeat;
     background-position: right 17px center;
+    background-color: rgb(178 34 34 / 0);
     position: relative;
     width: 270px;
     height: 52px;
@@ -106,6 +107,12 @@ a {
     border-radius: 8px;
     align-items: center;
     padding-inline: 16px 36px;
+  }
+
+  option {
+    color: var(--primary-font-color);
+    font-size: 16px;
+    line-height: 150%;
   }
 
   select {
@@ -157,6 +164,17 @@ a {
   border-radius: var(--small-border-radius);
 }
 
+.disabled-button {
+  width: fit-content;
+  height: fit-content;
+  padding: 16px 36px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: auto;
+  background-color: var(--font-button-color);
+  color: var(--background-button-color);
+  border-radius: var(--small-border-radius);
+}
 .inverted-button {
   width: fit-content;
   height: fit-content;

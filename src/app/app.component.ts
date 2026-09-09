@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import './training';
 import {Color} from '../enums/Color';
+import {FormsModule} from '@angular/forms';
 
 class Service {
   private static nextId = 0;
@@ -24,15 +25,30 @@ class Service {
 }
 }
 
+interface HikeSearchForm {
+  id: number;
+  tour: string;
+  date: string;
+  participants: string[];
+  classButton: string;
+}
+
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
 
+  hikeSearchForm: HikeSearchForm = {
+    id: 1,
+    tour: '',
+    date: '',
+    participants: [],
+    classButton: 'disabled-button'
+  }
   services: Service[] = [
     new Service(
       'guide',
@@ -54,8 +70,18 @@ export class AppComponent {
   ]
 
   constructor() {
+    setInterval(() => {
+      console.log(this.hikeSearchForm.participants)}, 1000)
     this.setLastLogin();
     this.incrementPageView();
+  }
+
+  checkHikeSearchForm() {
+    if (this.hikeSearchForm.date && this.hikeSearchForm.tour && this.hikeSearchForm.participants.length >= 4) {
+    this.hikeSearchForm.classButton = 'primary-button';
+    } else {
+      this.hikeSearchForm.classButton = 'disabled-button';
+    }
   }
 
   isPrimaryColor(color: Color): boolean {
