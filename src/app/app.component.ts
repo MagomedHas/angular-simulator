@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import './training';
 import {Color} from '../enums/Color';
 import {FormsModule} from '@angular/forms';
@@ -13,17 +13,18 @@ class Service {
   title: string;
   text: string;
   src: string
+
   constructor(
-  image: string,
-  title: string,
-  text: string,
- ) {
+    image: string,
+    title: string,
+    text: string,
+  ) {
     this.id = Service.nextId++;
     this.image = image;
     this.title = title;
     this.text = text;
     this.src = this.path + '/' + image + '.' + this.format;
-}
+  }
 }
 
 interface HikeSearchForm {
@@ -58,7 +59,9 @@ export class AppComponent {
     class: 'display_none',
     start(timeout: number) {
       this.class = this.onClass
-      setTimeout(() => {this.class = this.offClass}, timeout)
+      setTimeout(() => {
+        this.class = this.offClass
+      }, timeout)
     }
   }
 
@@ -71,7 +74,7 @@ export class AppComponent {
 
         const year: string = date.getFullYear().toString();
         const month: string = padZero(date.getMonth());
-        const day: string =  padZero(date.getDate());
+        const day: string = padZero(date.getDate());
         const hour: string = padZero(date.getHours());
         const minute: string = padZero(date.getMinutes());
         const second: string = padZero(date.getSeconds());
@@ -107,7 +110,7 @@ export class AppComponent {
 
     new Service(
       'shield',
-       'Безопасный поход',
+      'Безопасный поход',
       'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
     ),
 
@@ -127,7 +130,7 @@ export class AppComponent {
 
   checkHikeSearchForm() {
     if (this.hikeSearchForm.date && this.hikeSearchForm.tour && this.hikeSearchForm.participants.length >= 4) {
-    this.hikeSearchForm.classButton = 'primary-button';
+      this.hikeSearchForm.classButton = 'primary-button';
     } else {
       this.hikeSearchForm.classButton = 'disabled-button';
     }
@@ -138,7 +141,7 @@ export class AppComponent {
   }
 
   incrementPageView(): void {
-    let pageView: number =  Number(localStorage.getItem('pageView'))
+    let pageView: number = Number(localStorage.getItem('pageView'))
     if (pageView) {
       pageView++;
       localStorage.setItem('pageView', pageView.toString());

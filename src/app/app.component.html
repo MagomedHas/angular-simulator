@@ -1,4 +1,3 @@
-
 <div [class]="artificialLoad.class">
   <img src="/icon/loading_icon.png" alt="loading">
 </div>
@@ -56,7 +55,7 @@
       </h1>
       <div class="search__inner">
         <form class="search__form" id="search__form"
-              (change)="checkHikeSearchForm()" >
+              (change)="checkHikeSearchForm()">
           <div class="search__cell">
             <select
               name="location"
@@ -128,7 +127,9 @@
           <p>о нашем походе</p>
           <h2>Исследуйте все горные массивы мира вместе с нами</h2>
         </hgroup>
-        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
+        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно
+          из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
         <button class="primary-button">Программа тура</button>
       </div>
@@ -142,15 +143,16 @@
           <p>наше предложение</p>
           <h2>Лучшие программы для тебя</h2>
         </hgroup>
-        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
+        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
 
-          @for (service of services; track service.id) {
-            <div class="offer__service">
-              <img [src]="service.src" [alt]="service.image">
-              <h3>{{ service.title }}</h3>
-              <p>{{ service.text }}</p>
-            </div>
-          }
+        @for (service of services; track service.id) {
+          <div class="offer__service">
+            <img [src]="service.src" [alt]="service.image">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.text }}</p>
+          </div>
+        }
 
         <button class=" primary-button">Стоимость программ</button>
 
