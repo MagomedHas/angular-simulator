@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import './training';
 import {Color} from '../enums/Color';
 import {FormsModule} from '@angular/forms';
+import {async} from 'rxjs';
 
 class Service {
   private static nextId = 0;
@@ -41,6 +42,54 @@ interface HikeSearchForm {
 })
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
+  module: string = 'watch';
+
+  liveInput = {
+    input: '',
+    output: 'Введенный текст',
+    mou() {
+      this.output = this.input;
+    }
+  }
+
+  artificialLoad = {
+    onClass: 'artificial_load',
+    offClass: 'display_none',
+    class: 'display_none',
+    start(timeout: number) {
+      this.class = this.onClass
+      setTimeout(() => {this.class = this.offClass}, timeout)
+    }
+  }
+
+  watch = {
+    output: '',
+    start() {
+      setInterval(() => {
+        const padZero = (value: number): string => value.toString().padStart(2, '0');
+        const date: Date = new Date();
+
+        const year: string = date.getFullYear().toString();
+        const month: string = padZero(date.getMonth());
+        const day: string =  padZero(date.getDate());
+        const hour: string = padZero(date.getHours());
+        const minute: string = padZero(date.getMinutes());
+        const second: string = padZero(date.getSeconds());
+        this.output = `${month}.${day}.${year} ${hour}:${minute}:${second}`;
+        console.log(this.output);
+      }, 1000)
+    }
+  }
+
+  counter = {
+    count: 0,
+    add() {
+      this.count++;
+    },
+    sub() {
+      this.count--;
+    }
+  };
 
   hikeSearchForm: HikeSearchForm = {
     id: 1,
@@ -70,8 +119,8 @@ export class AppComponent {
   ]
 
   constructor() {
-    setInterval(() => {
-      console.log(this.hikeSearchForm.participants)}, 1000)
+    this.artificialLoad.start(2000)
+    this.watch.start()
     this.setLastLogin();
     this.incrementPageView();
   }

@@ -1,3 +1,8 @@
+
+<div [class]="artificialLoad.class">
+  <img src="/icon/loading_icon.png" alt="loading">
+</div>
+
 <header class="header">
   <div class="header__inner container">
     <div class="header__logo">
@@ -25,6 +30,21 @@
       </ol>
     </nav>
     <button class="header__button inverted-button">Консультация</button>
+    @if (module === 'watch') {
+      <div class="header__module module">
+        <p>{{ watch.output }}</p>
+        <button class="inverted-button" (click)="module = 'counter'">Показать кликер</button>
+      </div>
+    } @else if (module === 'counter') {
+      <div class="header__module module">
+        <div class="counter-module">
+          <button (click)="counter.add()">+</button>
+          <p>{{ counter.count }}</p>
+          <button (click)="counter.sub()">-</button>
+        </div>
+        <button class="inverted-button" (click)="module = 'watch'">Показать дату</button>
+      </div>
+    }
   </div>
 </header>
 
@@ -79,6 +99,13 @@
           </div>
           <button [class]="hikeSearchForm.classButton">Найти программу</button>
         </form>
+      </div>
+      <div class="live-input">
+        <div class="input-box">
+          <img src="/icon/arrow-select_icon.svg">
+          <input type="text" placeholder="Живой инпут" (input)="liveInput.mou()" [(ngModel)]="liveInput.input">
+        </div>
+        <p>{{ liveInput.output }}</p>
       </div>
     </div>
   </section>
@@ -136,6 +163,6 @@
         <img src="/images/flower-visual/mountain_river_mouth.png" alt="mountain river mouth">
       </div>
     </div>
-
   </div>
 </main>
+

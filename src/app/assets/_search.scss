@@ -6,6 +6,9 @@
   height: 985px;
   padding-top: 551px;
   color: var(--inverted-font-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
 
 
   .search__title {
@@ -41,6 +44,7 @@
   }
 
   select,
+  input,
   .hike_date {
     background-repeat: no-repeat;
     background-position: right 17px center;
@@ -48,9 +52,6 @@
     position: relative;
     width: 270px;
     height: 52px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 150%;
     border: 1px solid;
     border-radius: 8px;
     align-items: center;
@@ -98,5 +99,37 @@
   .hike_date:focus::before,
   .hike_date:valid::before {
     display: none;
+  }
+  nn::after {
+    color: #000;
+    content: url("/icon/arrow-select_icon.svg");
+  }
+
+
+  .live-input {
+    position: relative;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    p {
+      width: 270px;
+    }
+
+  }
+
+  .input-box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      transform: rotate(-90deg);
+      position: absolute;
+      right: 16px;
+    }
   }
 }
