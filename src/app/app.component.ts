@@ -34,25 +34,8 @@ export class AppComponent {
   liveInput: string = '';
   liveOutput: string = 'Введенный текст';
   counter: number = 0;
+  watch: string = '';
 
-  watch = {
-    output: '',
-    start() {
-      setInterval(() => {
-        const padZero = (value: number): string => value.toString().padStart(2, '0');
-        const date: Date = new Date();
-
-        const year: string = date.getFullYear().toString();
-        const month: string = padZero(date.getMonth());
-        const day: string = padZero(date.getDate());
-        const hour: string = padZero(date.getHours());
-        const minute: string = padZero(date.getMinutes());
-        const second: string = padZero(date.getSeconds());
-        this.output = `${month}.${day}.${year} ${hour}:${minute}:${second}`;
-        console.log(this.output);
-      }, 1000)
-    }
-  }
 
 
 
@@ -87,7 +70,7 @@ export class AppComponent {
 
   constructor() {
     this.loader(2000)
-    this.watch.start()
+    this.watchStart()
     this.setLastLogin();
     this.incrementPageView();
   }
@@ -107,6 +90,18 @@ export class AppComponent {
     }, timeout)
   }
 
+  watchStart(): void {
+    setInterval(() => {
+      const date: Date = new Date();
+      this.watch = `
+      ${date.getMonth().toString().padStart(2, '0')}.
+      ${date.getMonth().toString().padStart(2, '0')}.
+      ${date.getFullYear()}
+      ${date.getHours().toString().padStart(2, "0")}:
+      ${date.getMinutes().toString().padStart(2, '0')}:
+      ${date.getSeconds().toString().padStart(2, '0')}`;
+    }, 1000);
+  }
   isPrimaryColor(color: Color): boolean {
     return color === Color.RED || color === Color.GREEN || color === Color.BLUE;
   }

@@ -31,7 +31,7 @@
     <button class="header__button inverted-button">Консультация</button>
     @if (module === 'watch') {
       <div class="header__module module">
-        <p>{{ watch.output }}</p>
+        <p>11111111111</p>
         <button class="inverted-button" (click)="module = 'counter'">Показать кликер</button>
       </div>
     } @else if (module === 'counter') {
@@ -102,7 +102,12 @@
       <div class="live-input">
         <div class="input-box">
           <img src="/icon/arrow-select_icon.svg">
-          <input type="text" placeholder="Живой инпут" (input)="liveOutput = liveInput;" [(ngModel)]="liveInput.input">
+          <input
+            type="text"
+            placeholder="Живой инпут"
+            (input)="liveOutput = liveInput;"
+            [(ngModel)]="liveInput"
+          />
         </div>
         <p>{{ liveOutput }}</p>
       </div>
