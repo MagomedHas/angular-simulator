@@ -4,28 +4,7 @@ import {Color} from '../enums/Color';
 import {FormsModule} from '@angular/forms';
 import {async} from 'rxjs';
 
-class Service {
-  private static nextId = 0;
-  private path: string = '/images/offer';
-  private format: string = 'png';
-  id: number;
-  image: string;
-  title: string;
-  text: string;
-  src: string
 
-  constructor(
-    image: string,
-    title: string,
-    text: string,
-  ) {
-    this.id = Service.nextId++;
-    this.image = image;
-    this.title = title;
-    this.text = text;
-    this.src = this.path + '/' + image + '.' + this.format;
-  }
-}
 
 interface HikeSearchForm {
   id: number;
@@ -33,6 +12,13 @@ interface HikeSearchForm {
   date: string;
   participants: string[];
   classButton: string;
+}
+
+interface Feature {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
 }
 
 @Component({
@@ -101,24 +87,26 @@ export class AppComponent {
     participants: [],
     classButton: 'disabled-button'
   }
-  services: Service[] = [
-    new Service(
-      'guide',
-      'Опытный гид',
-      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-    ),
 
-    new Service(
-      'shield',
-      'Безопасный поход',
-      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
-    ),
-
-    new Service(
-      'tag',
-      'Опытный гид',
-      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-    )
+  features: Feature[] = [
+    {
+      id: 1,
+      imageUrl: '/images/offer/guide.png',
+      title: 'Опытный гид',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    },
+    {
+      id: 2,
+      imageUrl: '/images/offer/shield.png',
+      title: 'Безопасный поход',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    },
+    {
+      id: 3,
+      imageUrl: '/images/offer/tag.png',
+      title: 'Лояльные цены',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    }
   ]
 
   constructor() {

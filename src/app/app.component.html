@@ -146,15 +146,15 @@
         <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
           тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
 
-        @for (service of services; track service.id) {
-          <div class="offer__service">
-            <img [src]="service.src" [alt]="service.image">
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.text }}</p>
+        @for (feature of features; track feature.id) {
+          <div class="offer__feature">
+            <img [src]="feature.imageUrl" [alt]="feature.title">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
           </div>
         }
 
-        <button class=" primary-button">Стоимость программ</button>
+        <button class="primary-button">Стоимость программ</button>
 
       </div>
       <div class="offer__visuals flower-visual">
