@@ -1,27 +1,98 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import './training';
 import {Color} from '../enums/Color';
+import {FormsModule} from '@angular/forms';
+import {async} from 'rxjs';
+
+
+interface Feature {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
+  module: string = 'watch';
+  loaderClass: string = 'display_none';
+  liveInput: string = '';
+  liveOutput: string = 'Введенный текст';
+  counter: number = 0;
+  clock: string = '';
+
+  tourInput: string = '';
+  dateInput: string = '';
+  participantsInput: string[] = [];
+
+  features: Feature[] = [
+    {
+      id: 1,
+      imageUrl: '/images/offer/guide.png',
+      title: 'Опытный гид',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    },
+    {
+      id: 2,
+      imageUrl: '/images/offer/shield.png',
+      title: 'Безопасный поход',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    },
+    {
+      id: 3,
+      imageUrl: '/images/offer/tag.png',
+      title: 'Лояльные цены',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    }
+  ]
 
   constructor() {
+    this.loader(2000)
+    this.startClock()
     this.setLastLogin();
     this.incrementPageView();
+  }
+
+  loader(timeout: number): void {
+    this.loaderClass = 'loader';
+    setTimeout(() => {
+      this.loaderClass = 'display_none';
+    }, timeout)
+  }
+
+  startClock(): void {
+    setInterval(() => {
+      this.clock = new Date().toLocaleString('ru-RU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).replace(',', '')
+    }, 1000);
   }
 
   isPrimaryColor(color: Color): boolean {
     return color === Color.RED || color === Color.GREEN || color === Color.BLUE;
   }
 
+  isFormValid(): boolean {
+    return !!(
+      this.dateInput &&
+      this.tourInput &&
+      this.participantsInput.length >= 4
+    );
+  }
+
   incrementPageView(): void {
-    let pageView: number =  Number(localStorage.getItem('pageView'))
+    let pageView: number = Number(localStorage.getItem('pageView'))
     if (pageView) {
       pageView++;
       localStorage.setItem('pageView', pageView.toString());

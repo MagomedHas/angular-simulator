@@ -1,3 +1,7 @@
+<div [class]="loaderClass">
+  <img src="/icon/loading_icon.png" alt="loading">
+</div>
+
 <header class="header">
   <div class="header__inner container">
     <div class="header__logo">
@@ -25,39 +29,146 @@
       </ol>
     </nav>
     <button class="header__button inverted-button">Консультация</button>
+    @if (module === 'watch') {
+      <div class="header__module module">
+        <p>{{ clock }}</p>
+        <button class="inverted-button" (click)="module = 'counter'">Показать кликер</button>
+      </div>
+    } @else if (module === 'counter') {
+      <div class="header__module module">
+        <div class="counter-module">
+          <button (click)="counter += 1">+</button>
+          <p>{{ counter }}</p>
+          <button (click)="counter -= 1">-</button>
+        </div>
+        <button class="inverted-button" (click)="module = 'watch'">Показать дату</button>
+      </div>
+    }
   </div>
 </header>
-<section class="search">
-  <div class="container">
-    <h1 class="search__title">
-      Насладись прогулкой в горах<br>с командой единомышленников
-    </h1>
-    <div class="search__inner">
-      <form class="search__form" id="search__form">
-        <div class="search__cell">
-          <select name="location" id="location" required>
-            <option value="" disabled selected>Локация для тура</option>
-          </select>
-          <label for="location">выберите из списка</label>
-        </div>
-        <div class="search__cell">
+
+<main>
+  <section class="search">
+    <div class="container">
+      <h1 class="search__title">
+        Насладись прогулкой в горах<br>с командой единомышленников
+      </h1>
+      <div class="search__inner">
+        <form class="search__form" id="search__form">
+          <div class="search__cell">
+            <select
+              name="location"
+              id="location"
+              [(ngModel)]="tourInput"
+              required>
+              <option value="" disabled selected>Локация для тура</option>
+              <option value="1">тур 1</option>
+              <option value="2">тур 2</option>
+            </select>
+            <label for="location">выберите из списка</label>
+          </div>
+          <div class="search__cell">
+            <input
+              type="date"
+              name="hike_date"
+              id="hike_date"
+              class="hike_date"
+              [(ngModel)]="dateInput"
+              required
+            />
+            <label for="hike_date">укажите дату</label>
+          </div>
+          <div class="search__cell">
+            <select
+              name="participants"
+              id="participants"
+              size="1"
+              [(ngModel)]="participantsInput"
+              required
+              multiple>
+              <option value="" disabled selected>Участники</option>
+              <option value="1">Участники</option>
+              <option value="2">Участники</option>
+              <option value="3">Участники</option>
+              <option value="4">Участники</option>
+              <option value="5">Участники</option>
+            </select>
+            <label for="participants">минимум 4 человека</label>
+          </div>
+          <button class="primary-button" [disabled]="!isFormValid()">Найти программу</button>
+        </form>
+      </div>
+      <div class="live-input">
+        <div class="input-box">
+          <img src="/icon/arrow-select_icon.svg">
           <input
-            type="date"
-            name="hike_date"
-            id="hike_date"
-            class="hike_date"
-            required
+            type="text"
+            placeholder="Живой инпут"
+            (input)="liveOutput = liveInput;"
+            [(ngModel)]="liveInput"
           />
-          <label for="hike_date">укажите дату</label>
         </div>
-        <div class="search__cell">
-          <select name="participants" id="participants" required>
-            <option value="" disabled selected>Участники</option>
-          </select>
-          <label for="participants">выберите из списка</label>
+        <p>{{ liveOutput }}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="hike">
+    <div class="hike__inner container">
+      <div class="hike__visuals ">
+        <div class="hike__visual">
+          <img src="/images/mountain.png" alt="mountain" class="hike__visual">
         </div>
-        <button class="primary-button">Найти программу</button>
-      </form>
+        <div class="hike__visual placeholder_player">
+          <img src="/images/house_forest.png" alt="house_forest" class="placeholder_player__poster">
+          <button class="placeholder_player__button-play">
+            <img src="/icon/play_icon.svg">
+          </button>
+        </div>
+      </div>
+      <div class="hike__body content-block">
+        <hgroup class="hgroup">
+          <p>о нашем походе</p>
+          <h2>Исследуйте все горные массивы мира вместе с нами</h2>
+        </hgroup>
+        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно
+          из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
+        </p>
+        <button class="primary-button">Программа тура</button>
+      </div>
     </div>
   </div>
-</section>
+
+  <div class="offer">
+    <div class="offer__inner container">
+      <div class="offer__body content-block">
+        <hgroup class=" hgroup">
+          <p>наше предложение</p>
+          <h2>Лучшие программы для тебя</h2>
+        </hgroup>
+        <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
+
+        @for (feature of features; track feature.id) {
+          <div class="offer__feature">
+            <img [src]="feature.imageUrl" [alt]="feature.title">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </div>
+        }
+
+        <button class="primary-button">Стоимость программ</button>
+
+      </div>
+      <div class="offer__visuals flower-visual">
+
+        <img src="/images/flower-visual/Tea_by_the_lake.png" alt="Tea by the lake">
+        <img src="/images/flower-visual/mountain_river.png" alt="mountain_river">
+        <img src="/images/flower-visual/snowmobile.png" alt="snowmobile">
+        <img src="/images/flower-visual/mountain_river_mouth.png" alt="mountain river mouth">
+      </div>
+    </div>
+  </div>
+</main>
+

@@ -1,0 +1,51 @@
+
+.offer {
+  .offer__inner {
+    padding-block: 80px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .offer__body {
+    max-width: 580px;
+  }
+
+  .offer__feature {
+    height: 64px;
+    display: grid;
+    grid-template-columns: 66px auto;
+    grid-template-rows: auto auto;
+
+    img {
+      height: 50px;
+      grid-row: 1 / 3;
+      align-self: center;
+      transition: height 0.1s ease;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: 1.2%;
+    }
+
+    p {
+      margin-top: 4px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &:hover img {
+      height: 64px;
+      transition: height 3s ease;
+    }
+  }
+
+  .offer__visuals {
+    width: 510px;
+    height: 510px;
+  }
+}
