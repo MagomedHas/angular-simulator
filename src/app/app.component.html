@@ -102,9 +102,9 @@
       <div class="live-input">
         <div class="input-box">
           <img src="/icon/arrow-select_icon.svg">
-          <input type="text" placeholder="Живой инпут" (input)="liveInput.mou()" [(ngModel)]="liveInput.input">
+          <input type="text" placeholder="Живой инпут" (input)="liveOutput = liveInput;" [(ngModel)]="liveInput.input">
         </div>
-        <p>{{ liveInput.output }}</p>
+        <p>{{ liveOutput }}</p>
       </div>
     </div>
   </section>

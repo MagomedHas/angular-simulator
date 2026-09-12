@@ -31,14 +31,10 @@ export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
   module: string = 'watch';
   loaderClass: string = 'display_none';
-  liveInput = {
-    input: '',
-    output: 'Введенный текст',
-    mou() {
-      this.output = this.input;
-    }
-  }
-  
+  liveInput: string = '';
+  liveOutput: string = 'Введенный текст';
+  counter: number = 0;
+
   watch = {
     output: '',
     start() {
@@ -58,7 +54,7 @@ export class AppComponent {
     }
   }
 
-  counter: number = 0;
+
 
   hikeSearchForm: HikeSearchForm = {
     id: 1,
