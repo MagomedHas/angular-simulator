@@ -1,30 +1,28 @@
 @mixin button {
-  width: fit-content;
-  height: fit-content;
-  padding: 16px 36px;
   font-weight: 600;
   font-size: 16px;
-  border-radius: var(--small-border-radius);
 }
 
 .primary-button {
   @include button;
+  width: fit-content;
+  height: fit-content;
+  padding: 16px 36px;
+  border-radius: var(--small-border-radius);
   background-color: var(--background-button-color);
   color: var(--font-button-color);
 }
 
-.disabled-button {
-  @include button;
+.primary-button:disabled {
   background-color: var(--font-button-color);
   color: var(--background-button-color);
   cursor: default;
 }
 
 .inverted-button {
+  @include button;
   width: 157px;
   height: 44px;
-  font-weight: 600;
-  font-size: 16px;
   line-height: 20px;
   letter-spacing: 1.2%;
   display: flex;

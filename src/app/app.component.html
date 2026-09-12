@@ -54,13 +54,12 @@
         Насладись прогулкой в горах<br>с командой единомышленников
       </h1>
       <div class="search__inner">
-        <form class="search__form" id="search__form"
-              (change)="checkHikeSearchForm()">
+        <form class="search__form" id="search__form">
           <div class="search__cell">
             <select
               name="location"
               id="location"
-              [(ngModel)]="hikeSearchForm.tour"
+              [(ngModel)]="tourInput"
               required>
               <option value="" disabled selected>Локация для тура</option>
               <option value="1">тур 1</option>
@@ -74,7 +73,7 @@
               name="hike_date"
               id="hike_date"
               class="hike_date"
-              [(ngModel)]="hikeSearchForm.date"
+              [(ngModel)]="dateInput"
               required
             />
             <label for="hike_date">укажите дату</label>
@@ -83,7 +82,7 @@
             <select
               name="participants"
               id="participants"
-              [(ngModel)]="hikeSearchForm.participants"
+              [(ngModel)]="participantsInput"
               size="1"
               multiple
               required>
@@ -96,7 +95,7 @@
             </select>
             <label for="participants">минимум 4 человека</label>
           </div>
-          <button [class]="hikeSearchForm.classButton">Найти программу</button>
+          <button class="primary-button" [disabled]="!isFormValid()">Найти программу</button>
         </form>
       </div>
       <div class="live-input">

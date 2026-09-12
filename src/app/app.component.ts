@@ -5,15 +5,6 @@ import {FormsModule} from '@angular/forms';
 import {async} from 'rxjs';
 
 
-
-interface HikeSearchForm {
-  id: number;
-  tour: string;
-  date: string;
-  participants: string[];
-  classButton: string;
-}
-
 interface Feature {
   id: number;
   imageUrl: string;
@@ -36,16 +27,9 @@ export class AppComponent {
   counter: number = 0;
   clock: string = '';
 
-
-
-
-  hikeSearchForm: HikeSearchForm = {
-    id: 1,
-    tour: '',
-    date: '',
-    participants: [],
-    classButton: 'disabled-button'
-  }
+  tourInput: string = '';
+  dateInput: string = '';
+  participantsInput: string[] = [];
 
   features: Feature[] = [
     {
@@ -75,14 +59,6 @@ export class AppComponent {
     this.incrementPageView();
   }
 
-  checkHikeSearchForm() {
-    if (this.hikeSearchForm.date && this.hikeSearchForm.tour && this.hikeSearchForm.participants.length >= 4) {
-      this.hikeSearchForm.classButton = 'primary-button';
-    } else {
-      this.hikeSearchForm.classButton = 'disabled-button';
-    }
-  }
-
   loader(timeout: number): void {
     this.loaderClass = 'loader';
     setTimeout(() => {
@@ -92,7 +68,7 @@ export class AppComponent {
 
   startClock(): void {
     setInterval(() => {
-      this.clock  = new Date().toLocaleString('ru-RU', {
+      this.clock = new Date().toLocaleString('ru-RU', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
@@ -102,8 +78,17 @@ export class AppComponent {
       }).replace(',', '')
     }, 1000);
   }
+
   isPrimaryColor(color: Color): boolean {
     return color === Color.RED || color === Color.GREEN || color === Color.BLUE;
+  }
+
+  isFormValid(): boolean {
+    return !!(
+      this.dateInput &&
+      this.tourInput &&
+      this.participantsInput.length >= 4
+    );
   }
 
   incrementPageView(): void {
@@ -120,6 +105,4 @@ export class AppComponent {
     const date: Date = new Date();
     localStorage.setItem('lastLogin', date.toString());
   }
-
-  protected readonly Date = Date;
 }
