@@ -70,15 +70,7 @@ export class AppComponent {
     }
   }
 
-  counter = {
-    count: 0,
-    add() {
-      this.count++;
-    },
-    sub() {
-      this.count--;
-    }
-  };
+  counter: number = 0;
 
   hikeSearchForm: HikeSearchForm = {
     id: 1,

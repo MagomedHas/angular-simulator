@@ -37,9 +37,9 @@
     } @else if (module === 'counter') {
       <div class="header__module module">
         <div class="counter-module">
-          <button (click)="counter.add()">+</button>
-          <p>{{ counter.count }}</p>
-          <button (click)="counter.sub()">-</button>
+          <button (click)="counter += 1">+</button>
+          <p>{{ counter }}</p>
+          <button (click)="counter -= 1">-</button>
         </div>
         <button class="inverted-button" (click)="module = 'watch'">Показать дату</button>
       </div>
