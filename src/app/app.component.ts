@@ -30,7 +30,7 @@ interface Feature {
 export class AppComponent {
   companyName: string = 'РУМТИБЕТ';
   module: string = 'watch';
-
+  loaderClass: string = 'display_none';
   liveInput = {
     input: '',
     output: 'Введенный текст',
@@ -38,19 +38,7 @@ export class AppComponent {
       this.output = this.input;
     }
   }
-
-  artificialLoad = {
-    onClass: 'artificial_load',
-    offClass: 'display_none',
-    class: 'display_none',
-    start(timeout: number) {
-      this.class = this.onClass
-      setTimeout(() => {
-        this.class = this.offClass
-      }, timeout)
-    }
-  }
-
+  
   watch = {
     output: '',
     start() {
@@ -102,7 +90,7 @@ export class AppComponent {
   ]
 
   constructor() {
-    this.artificialLoad.start(2000)
+    this.loader(2000)
     this.watch.start()
     this.setLastLogin();
     this.incrementPageView();
@@ -114,6 +102,13 @@ export class AppComponent {
     } else {
       this.hikeSearchForm.classButton = 'disabled-button';
     }
+  }
+
+  loader(timeout: number): void {
+    this.loaderClass = 'loader';
+    setTimeout(() => {
+      this.loaderClass = 'display_none';
+    }, timeout)
   }
 
   isPrimaryColor(color: Color): boolean {
