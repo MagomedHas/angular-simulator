@@ -31,7 +31,7 @@
     <button class="header__button inverted-button">Консультация</button>
     @if (module === 'watch') {
       <div class="header__module module">
-        <p>11111111111</p>
+        <p>{{ clock }}</p>
         <button class="inverted-button" (click)="module = 'counter'">Показать кликер</button>
       </div>
     } @else if (module === 'counter') {

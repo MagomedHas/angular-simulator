@@ -34,7 +34,7 @@ export class AppComponent {
   liveInput: string = '';
   liveOutput: string = 'Введенный текст';
   counter: number = 0;
-  watch: string = '';
+  clock: string = '';
 
 
 
@@ -70,7 +70,7 @@ export class AppComponent {
 
   constructor() {
     this.loader(2000)
-    this.watchStart()
+    this.startClock()
     this.setLastLogin();
     this.incrementPageView();
   }
@@ -90,16 +90,16 @@ export class AppComponent {
     }, timeout)
   }
 
-  watchStart(): void {
+  startClock(): void {
     setInterval(() => {
-      const date: Date = new Date();
-      this.watch = `
-      ${date.getMonth().toString().padStart(2, '0')}.
-      ${date.getMonth().toString().padStart(2, '0')}.
-      ${date.getFullYear()}
-      ${date.getHours().toString().padStart(2, "0")}:
-      ${date.getMinutes().toString().padStart(2, '0')}:
-      ${date.getSeconds().toString().padStart(2, '0')}`;
+      this.clock  = new Date().toLocaleString('ru-RU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }).replace(',', '')
     }, 1000);
   }
   isPrimaryColor(color: Color): boolean {
@@ -120,4 +120,6 @@ export class AppComponent {
     const date: Date = new Date();
     localStorage.setItem('lastLogin', date.toString());
   }
+
+  protected readonly Date = Date;
 }
