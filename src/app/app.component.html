@@ -137,7 +137,7 @@
           тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно
           из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
-        <button class="primary-button">Программа тура</button>
+        <button class="primary-button" id="tour-button">Программа тура</button>
       </div>
     </div>
   </section>
@@ -145,7 +145,7 @@
   <section class="offer">
     <div class="offer__inner container">
       <div class="offer__body content-block">
-        <hgroup class=" hgroup">
+        <hgroup class="hgroup">
           <p>наше предложение</p>
           <h2>Лучшие программы для тебя</h2>
         </hgroup>
@@ -153,14 +153,14 @@
           тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
 
         @for (feature of features; track feature.id) {
-          <div class="offer__feature">
+          <div class="offer__feature feature">
             <img [src]="`/images/offer/${feature.image}.png`" [alt]="feature.title">
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.description }}</p>
           </div>
         }
 
-        <button class="primary-button">Стоимость программ</button>
+        <button class="primary-button" id="price-button">Стоимость программ</button>
 
       </div>
       <div class="offer__visuals flower-visual">
