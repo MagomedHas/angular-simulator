@@ -1,6 +1,6 @@
 export interface IFeature {
   id: number;
-  imageUrl: string;
+  image: string;
   title: string;
   description: string;
 }

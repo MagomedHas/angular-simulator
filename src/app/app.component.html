@@ -9,24 +9,24 @@
       <p>{{ companyName }}</p>
     </div>
     <nav>
-      <ol class="header__nav">
-        <li><a src="/">Главная</a></li>
+      <ul class="header__nav">
+        <li><a id="nav-home" href="/">Главная</a></li>
         <li>
-          <a src="/">Про гида</a>
+          <a id="nav-about" href="/">Про гида</a>
         </li>
         <li>
-          <a src="/">Программа тура</a>
+          <a id="nav-program" href="/">Программа тура</a>
         </li>
         <li>
-          <a src="/">Стоимость</a>
+          <a id="nav-price" href="/">Стоимость</a>
         </li>
         <li>
-          <a src="/">Блог</a>
+          <a id="nav-blog" href="/">Блог</a>
         </li>
         <li>
-          <a src="/">Контакты</a>
+          <a id="nav-contacts" href="/">Контакты</a>
         </li>
-      </ol>
+      </ul>
     </nav>
     <button class="header__button inverted-button">Консультация</button>
     @if (module === 'watch') {
@@ -60,7 +60,8 @@
               name="location"
               id="location"
               [(ngModel)]="tourInput"
-              required>
+              required
+            >
               <option value="" disabled selected>Локация для тура</option>
               <option value="1">тур 1</option>
               <option value="2">тур 2</option>
@@ -85,7 +86,8 @@
               size="1"
               [(ngModel)]="participantsInput"
               required
-              multiple>
+              multiple
+            >
               <option value="" disabled selected>Участники</option>
               <option value="1">Участники</option>
               <option value="2">Участники</option>
@@ -152,7 +154,7 @@
 
         @for (feature of features; track feature.id) {
           <div class="offer__feature">
-            <img [src]="feature.imageUrl" [alt]="feature.title">
+            <img [src]="`/images/offer/${feature.image}.png`" [alt]="feature.title">
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.description }}</p>
           </div>
