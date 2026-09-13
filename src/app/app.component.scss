@@ -31,7 +31,7 @@ a {
   line-height: 150%;
 }
 
-main > div:nth-child(odd) {
+main > section:nth-child(odd) {
   background-color: var(--secondary-block-color);
 }
 
