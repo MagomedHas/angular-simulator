@@ -10,7 +10,9 @@
     </div>
     <nav>
       <ul class="header__nav">
-        <li><a id="nav-home" href="/">Главная</a></li>
+        <li>
+          <a id="nav-home" href="/">Главная</a>
+        </li>
         <li>
           <a id="nav-about" href="/">Про гида</a>
         </li>
@@ -32,16 +34,16 @@
     @if (module === 'watch') {
       <div class="header__module module">
         <p>{{ clock }}</p>
-        <button class="inverted-button" (click)="module = 'counter'">Показать кликер</button>
+        <button class="inverted-button" id="counter-switch-button" (click)="module = 'counter'">Показать кликер</button>
       </div>
     } @else if (module === 'counter') {
       <div class="header__module module">
         <div class="counter-module">
-          <button (click)="counter += 1">+</button>
+          <button id="button-add-counter" (click)="counter += 1">+</button>
           <p>{{ counter }}</p>
-          <button (click)="counter -= 1">-</button>
+          <button id="button-sub-counter" (click)="counter -= 1">-</button>
         </div>
-        <button class="inverted-button" (click)="module = 'watch'">Показать дату</button>
+        <button class="inverted-button" id="clock-switch-button" (click)="module = 'watch'">Показать дату</button>
       </div>
     }
   </div>

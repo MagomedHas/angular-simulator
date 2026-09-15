@@ -1,9 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import './training';
-import {Color} from '../enums/Color';
-import {FormsModule} from '@angular/forms';
-import {async} from 'rxjs';
-import {IFeature} from '../interfaces/IFeature';
+import { Color } from '../enums/Color';
+import { FormsModule } from '@angular/forms';
+import { IFeature }  from '../interfaces/IFeature';
 
 
 @Component({
