@@ -1,6 +1,11 @@
 @use "fonts";
 @use "normailze";
+@use "button";
 
+@use "header";
+@use "search";
+@use "hike";
+@use "offer";
 * {
   font-family: 'Nunito Sans', serif;
 }
@@ -19,9 +24,11 @@
   --primary-block-color: #ffffff;
   --secondary-block-color: #F3F5F4;
   --search-block-color: #FFFFFF33;
+  --loading-block-color: #D9D9D9;
 
   --font-button-color: #FDFDFD;
   --background-button-color: #1A3E3E;
 
   --small-border-radius: 4px;
+  --petal-border-radius: 50px;
 }
