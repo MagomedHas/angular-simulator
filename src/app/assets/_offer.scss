@@ -9,6 +9,9 @@
 
   .offer__body {
     max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .offer__feature {

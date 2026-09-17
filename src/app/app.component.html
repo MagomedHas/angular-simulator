@@ -146,8 +146,8 @@
 
   <section class="offer">
     <div class="offer__inner container">
-      <div class="offer__body content-block">
-        <hgroup class="hgroup">
+      <div class="offer__body  -block">
+        <hgroup class="hgroup_start">
           <p>наше предложение</p>
           <h2>Лучшие программы для тебя</h2>
         </hgroup>
@@ -174,5 +174,35 @@
       </div>
     </div>
   </section>
+
+  <section class="destinations">
+    <hgroup class="hgroup_center">
+      <h2>Популярные направления</h2>
+      <p>по версии отдыхающих</p>
+    </hgroup>
+    <ul class="destinations__list container">
+      @for (destination of destinations; track destination.id) {
+        <li class="destinations__item destination">
+          <img [src]="`/images/destinations/${destination.image}.png`" [alt]="destination.title">
+          <div class="destination__rating">
+            <img src="/icon/round-star_icon.svg">
+            <span>{{ destination.rating.toFixed(1) }}</span>
+          </div>
+          <div class="destination__content">
+            <div>
+              <h3>{{ destination.title }}</h3>
+              <p>{{ destination.description }}</p>
+            </div>
+            <div class="destination__price">
+              <span>{{ `${destination.price} ${DOLLAR_SIGN}` }}</span>
+            </div>
+          </div>
+        </li>
+      }
+
+    </ul>
+    <button class="primary-button" id="rating-button">Рейтинг направлений</button>
+  </section>
+  <section class="tect"></section>
 </main>
 

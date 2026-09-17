@@ -3,7 +3,7 @@ import './training';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
 import { IFeature }  from '../interfaces/IFeature';
-
+import { IDestination } from '../interfaces/IDestination';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,8 @@ import { IFeature }  from '../interfaces/IFeature';
 })
 export class AppComponent {
 
+
+  DOLLAR_SIGN: string = '\u0024';
   companyName: string = 'РУМТИБЕТ';
   module: string = 'watch';
   loaderClass: string = 'display_none';
@@ -43,6 +45,33 @@ export class AppComponent {
       image: 'tag',
       title: 'Лояльные цены',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.'
+    }
+  ]
+
+  destinations: IDestination[] = [
+    {
+      id: 1,
+      image: 'lake_near_the_mountains',
+      title: 'Озеро возле гор',
+      description: 'романтическое приключение',
+      rating: 4.9,
+      price: 480
+    },
+    {
+      id: 2,
+      image: 'night_in_the_Mountains',
+      title: 'Ночь в горах',
+      description: 'в компании друзей',
+      rating: 4.5,
+      price: 500
+    },
+    {
+      id: 3,
+      image: 'stretching_in_the_mountains',
+      title: 'Растяжка в горах',
+      description: 'для тех, кто забоится о себе',
+      rating: 5.0,
+      price: 230
     }
   ]
 
