@@ -12,6 +12,7 @@ import { IFeature }  from '../interfaces/IFeature';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
   companyName: string = 'РУМТИБЕТ';
   module: string = 'watch';
   loaderClass: string = 'display_none';
@@ -98,4 +99,5 @@ export class AppComponent {
     const date: Date = new Date();
     localStorage.setItem('lastLogin', date.toString());
   }
+
 }
