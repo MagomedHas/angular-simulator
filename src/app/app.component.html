@@ -117,7 +117,7 @@
     </div>
   </section>
 
-  <section class="hike">
+  <section class="main-background-color hike">
     <div class="hike__inner container">
       <div class="hike__visuals ">
         <div class="hike__visual">
@@ -131,7 +131,7 @@
         </div>
       </div>
       <div class="hike__body content-block">
-        <hgroup class="hgroup">
+        <hgroup class="hgroup_start">
           <p>о нашем походе</p>
           <h2>Исследуйте все горные массивы мира вместе с нами</h2>
         </hgroup>
@@ -144,9 +144,9 @@
     </div>
   </section>
 
-  <section class="offer">
+  <section class="main-background-color alt offer">
     <div class="offer__inner container">
-      <div class="offer__body  -block">
+      <div class="offer__body">
         <hgroup class="hgroup_start">
           <p>наше предложение</p>
           <h2>Лучшие программы для тебя</h2>
@@ -176,33 +176,62 @@
   </section>
 
   <section class="destinations">
-    <hgroup class="hgroup_center">
-      <h2>Популярные направления</h2>
-      <p>по версии отдыхающих</p>
-    </hgroup>
-    <ul class="destinations__list container">
-      @for (destination of destinations; track destination.id) {
-        <li class="destinations__item destination">
-          <img [src]="`/images/destinations/${destination.image}.png`" [alt]="destination.title">
-          <div class="destination__rating">
-            <img src="/icon/round-star_icon.svg">
-            <span>{{ destination.rating.toFixed(1) }}</span>
-          </div>
-          <div class="destination__content">
-            <div>
-              <h3>{{ destination.title }}</h3>
-              <p>{{ destination.description }}</p>
-            </div>
-            <div class="destination__price">
-              <span>{{ `${destination.price} ${DOLLAR_SIGN}` }}</span>
-            </div>
-          </div>
-        </li>
-      }
-
-    </ul>
-    <button class="primary-button" id="rating-button">Рейтинг направлений</button>
+   <div class="main-background-color destinations__inner">
+     <hgroup class="hgroup_center">
+       <p>по версии отдыхающих</p>
+       <h2>Популярные направления</h2>
+     </hgroup>
+     <ul class="destinations__list container">
+       @for (destination of destinations; track destination.id) {
+         <li class="destinations__item destination">
+           <img [src]="`/images/destinations/${destination.image}.png`" [alt]="destination.title">
+           <div class="destination__rating">
+             <img src="/icon/round-star_icon.svg">
+             <span>{{ destination.rating.toFixed(1) }}</span>
+           </div>
+           <div class="destination__content">
+             <div>
+               <h3>{{ destination.title }}</h3>
+               <p>{{ destination.description }}</p>
+             </div>
+             <div class="destination__price">
+               <span>{{ `${destination.price} ${DOLLAR_SIGN}` }}</span>
+             </div>
+           </div>
+         </li>
+       }
+     </ul>
+   </div>
+    <div class="destinations__button main-background-color alt">
+      <button class="primary-button" id="rating-button">Рейтинг направлений</button>
+    </div>
   </section>
-  <section class="tect"></section>
+
+  <section class="travels">
+    <div class="main-background-color alt travels__inner">
+      <hgroup class="hgroup_center">
+        <p>делимся впечатлениями</p>
+        <h2>Блог о путешествиях</h2>
+      </hgroup>
+      <ul class="travels__list container">
+        @for (travel of travels; track travel.id) {
+          <li class="travels__item travel">
+            <img [src]="`/images/travel/${travel.image}.png`" [alt]="travel.image">
+            <div class="travel__content">
+              <h3>{{ travel.title }}</h3>
+              <p>{{ travel.description }}</p>
+              <div class="travel__foo">
+                <time>{{ travel.date.toLocaleDateString("en-GB") }}</time>
+                <a [href]="travel.url" [id]="`travel${travel.id}` ">читать статью</a>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="travels__button main-background-color ">
+      <button class="primary-button" id="rating-button">Другие материалы</button>
+    </div>
+  </section>
 </main>
 

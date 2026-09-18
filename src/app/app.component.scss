@@ -3,7 +3,7 @@ a {
 }
 
 .container {
-  width: 1180px;
+  max-width: 1180px;
   margin-inline: auto;
 }
 
@@ -15,10 +15,13 @@ a {
   line-height: 150%;
 }
 
-main > section:nth-child(odd) {
-  background-color: var(--secondary-block-color);
+.main-background-color {
+  background-color: var(--primary-block-color);
 }
 
+.main-background-color.alt {
+  background-color: var(--secondary-block-color);
+}
 
 .content-block {
   margin-block: auto;
