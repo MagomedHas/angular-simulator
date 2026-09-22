@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import './training';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
 import { IFeature }  from '../interfaces/IFeature';
 import { IDestination } from '../interfaces/IDestination';
 import { ITravel } from '../interfaces/ITravel';
+import { NgTemplateOutlet } from '@angular/common';
+import { DisplayMessagesService } from './display-messages.service';
+import { MessageType } from '../enums/Message';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-
+class AppComponent {
+  displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
   DOLLAR_SIGN: string = '\u0024';
   companyName: string = 'РУМТИБЕТ';
   module: string = 'watch';
@@ -111,9 +114,9 @@ export class AppComponent {
   ]
 
   constructor() {
-    this.loader(2000)
-    this.startClock()
-    this.setLastLogin();
+    this.loader(2000);
+    this.startClock();
+    // this.setLastLogin();
     this.incrementPageView();
   }
 
@@ -164,4 +167,7 @@ export class AppComponent {
     localStorage.setItem('lastLogin', date.toString());
   }
 
+  protected readonly MessageType = MessageType;
 }
+
+export default AppComponent

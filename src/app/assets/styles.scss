@@ -2,7 +2,9 @@
 @use "normailze";
 @use "button";
 @use "hgroup";
+@use "message";
 
+@use "chat";
 @use "header";
 @use "search";
 @use "hike";
@@ -12,7 +14,6 @@
 
 * {
   font-family: 'Nunito Sans', serif;
-  color: var(--primary-font-color);
 }
 
 :root {
