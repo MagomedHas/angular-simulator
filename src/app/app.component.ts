@@ -6,7 +6,7 @@ import { IFeature }  from '../interfaces/IFeature';
 import { IDestination } from '../interfaces/IDestination';
 import { ITravel } from '../interfaces/ITravel';
 import { NgTemplateOutlet } from '@angular/common';
-import { DisplayMessagesService } from './display-messages.service';
+import { DisplayMessagesService } from '../services/display-messages.service';
 import { MessageType } from '../enums/Message';
 
 @Component({
