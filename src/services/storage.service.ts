@@ -15,7 +15,7 @@ export class StorageService {
     try {
       return JSON.parse(value) as T;
     } catch {
-      return null; // or rethrow, or log
+      return null;
     }
   }
 
