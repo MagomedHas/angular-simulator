@@ -15,7 +15,8 @@ import { MessageType } from '../enums/Message';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-class AppComponent {
+export class AppComponent {
+
   displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
   DOLLAR_SIGN: string = '\u0024';
   companyName: string = 'РУМТИБЕТ';
@@ -65,6 +66,7 @@ class AppComponent {
     },
 
   ]
+
   features: IFeature[] = [
     {
       id: 1,
@@ -116,7 +118,7 @@ class AppComponent {
   constructor() {
     this.loader(2000);
     this.startClock();
-    // this.setLastLogin();
+    this.setLastLogin();
     this.incrementPageView();
   }
 

@@ -6,6 +6,7 @@ import {MessageType} from '../enums/Message';
   providedIn: 'root',
 })
 export class DisplayMessagesService {
+
   messages: IMessage[] = [];
   private static nextId: number = 1;
 
@@ -28,8 +29,8 @@ export class DisplayMessagesService {
     DisplayMessagesService.nextId++;
   }
 
-
   closeMessages(id: number): void {
     this.messages = this.messages.filter(msg => msg.id !== id);
   }
+
 }

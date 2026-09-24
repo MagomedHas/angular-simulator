@@ -1,6 +1,4 @@
-<!--<div [class]="loaderClass">-->
-<!--  <img src="/icon/loading_icon.png" alt="loading">-->
-<!--</div>-->
+
 <div class="chat ">
   <header class="chat__header header">
 
@@ -62,7 +60,10 @@
 
 <ng-template #messageTemplate let-msg>
   <div class="message">
-    <button class="message__button" (click)="displayMessagingService.closeMessages(msg.id)">
+    <button
+      class="message__button"
+      (click)="displayMessagingService.closeMessages(msg.id)"
+      [id]="`close_message_button_${msg.id}`">
       <img alt="Close message button" src="/icon/сlose-button_icon.svg">
     </button>
     <img class="message__img" alt="envelope" src="/icon/envelope_icon.svg"/>
