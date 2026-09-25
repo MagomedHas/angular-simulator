@@ -7,6 +7,7 @@ import { IDestination } from '../interfaces/IDestination';
 import { ITravel } from '../interfaces/ITravel';
 import { NgTemplateOutlet } from '@angular/common';
 import { DisplayMessagesService } from '../services/display-messages.service';
+import { MessageType } from '../enums/Message';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ export class AppComponent {
   tourInput: string = '';
   dateInput: string = '';
   participantsInput: string[] = [];
+  protected readonly MessageType: typeof MessageType = MessageType;
 
   travels: ITravel[] = [
     {
