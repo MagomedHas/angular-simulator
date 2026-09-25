@@ -1,53 +1,76 @@
-<div [class]="loaderClass">
-  <img src="/icon/loading_icon.png" alt="loading">
+
+<div class="chat ">
+  <header class="chat__header header">
+
+    <div class="header__inner container">
+      <div class="header__logo">
+        <img src="/icon/logo_icon.svg" alt="РУМТИБЕТ">
+        <p>{{ companyName }}</p>
+      </div>
+      <nav>
+        <ul class="header__nav">
+          <li>
+            <a id="nav-home" href="/">Главная</a>
+          </li>
+          <li>
+            <a id="nav-about" href="/">Про гида</a>
+          </li>
+          <li>
+            <a id="nav-program" href="/">Программа тура</a>
+          </li>
+          <li>
+            <a id="nav-price" href="/">Стоимость</a>
+          </li>
+          <li>
+            <a id="nav-blog" href="/">Блог</a>
+          </li>
+          <li>
+            <a id="nav-contacts" href="/">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="header__button inverted-button" id="consultation-button">Консультация</button>
+      @if (module === 'watch') {
+        <div class="header__module module">
+          <p>{{ clock }}</p>
+          <button class="inverted-button" id="counter-switch-button" (click)="module = 'counter'">Показать кликер</button>
+        </div>
+      } @else if (module === 'counter') {
+        <div class="header__module module">
+          <div class="counter-module">
+            <button id="button-add-counter" (click)="counter += 1">+</button>
+            <p>{{ counter }}</p>
+            <button id="button-sub-counter" (click)="counter -= 1">-</button>
+          </div>
+          <button class="inverted-button" id="clock-switch-button" (click)="module = 'watch'">Показать дату</button>
+        </div>
+      }
+    </div>
+  </header>
+  <div class=" chat__massages">
+
+    @for (msg of displayMessagingService.messages; track msg.id) {
+      <ng-container
+        *ngTemplateOutlet="messageTemplate; context: { $implicit: msg }">
+      </ng-container>
+    }
+
+  </div>
 </div>
 
-<header class="header">
-  <div class="header__inner container">
-    <div class="header__logo">
-      <img src="/icon/logo_icon.svg" alt="РУМТИБЕТ">
-      <p>{{ companyName }}</p>
-    </div>
-    <nav>
-      <ul class="header__nav">
-        <li>
-          <a id="nav-home" href="/">Главная</a>
-        </li>
-        <li>
-          <a id="nav-about" href="/">Про гида</a>
-        </li>
-        <li>
-          <a id="nav-program" href="/">Программа тура</a>
-        </li>
-        <li>
-          <a id="nav-price" href="/">Стоимость</a>
-        </li>
-        <li>
-          <a id="nav-blog" href="/">Блог</a>
-        </li>
-        <li>
-          <a id="nav-contacts" href="/">Контакты</a>
-        </li>
-      </ul>
-    </nav>
-    <button class="header__button inverted-button">Консультация</button>
-    @if (module === 'watch') {
-      <div class="header__module module">
-        <p>{{ clock }}</p>
-        <button class="inverted-button" id="counter-switch-button" (click)="module = 'counter'">Показать кликер</button>
-      </div>
-    } @else if (module === 'counter') {
-      <div class="header__module module">
-        <div class="counter-module">
-          <button id="button-add-counter" (click)="counter += 1">+</button>
-          <p>{{ counter }}</p>
-          <button id="button-sub-counter" (click)="counter -= 1">-</button>
-        </div>
-        <button class="inverted-button" id="clock-switch-button" (click)="module = 'watch'">Показать дату</button>
-      </div>
-    }
+<ng-template #messageTemplate let-msg>
+  <div class="message">
+    <button
+      class="message__button"
+      (click)="displayMessagingService.closeMessages(msg.id)"
+      [id]="`close_message_button_${msg.id}`">
+      <img alt="Close message button" src="/icon/сlose-button_icon.svg">
+    </button>
+    <img class="message__img" alt="envelope" src="/icon/envelope_icon.svg"/>
+    <h3 class="message__title">{{ msg.type }}</h3>
+    <p class="message__content">{{ msg.message }}</p>
   </div>
-</header>
+</ng-template>
 
 <main>
   <section class="search">
@@ -99,12 +122,12 @@
             </select>
             <label for="participants">минимум 4 человека</label>
           </div>
-          <button class="primary-button" [disabled]="!isFormValid()">Найти программу</button>
+          <button class="primary-button" id="search-button" [disabled]="!isFormValid()">Найти программу</button>
         </form>
       </div>
       <div class="live-input">
         <div class="input-box">
-          <img src="/icon/arrow-select_icon.svg">
+          <img src="/icon/arrow-select_icon.svg" alt="Живой инпут">
           <input
             type="text"
             placeholder="Живой инпут"
@@ -117,7 +140,7 @@
     </div>
   </section>
 
-  <section class="hike">
+  <section class="main-background-color hike">
     <div class="hike__inner container">
       <div class="hike__visuals ">
         <div class="hike__visual">
@@ -125,13 +148,13 @@
         </div>
         <div class="hike__visual placeholder_player">
           <img src="/images/house_forest.png" alt="house_forest" class="placeholder_player__poster">
-          <button class="placeholder_player__button-play">
-            <img src="/icon/play_icon.svg">
+          <button class="placeholder_player__button-play" id="play-botton">
+            <img src="/icon/play_icon.svg" alt="play-botton">
           </button>
         </div>
       </div>
       <div class="hike__body content-block">
-        <hgroup class="hgroup">
+        <hgroup class="hgroup_start">
           <p>о нашем походе</p>
           <h2>Исследуйте все горные массивы мира вместе с нами</h2>
         </hgroup>
@@ -139,15 +162,21 @@
           тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно
           из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
         </p>
-        <button class="primary-button" id="tour-button">Программа тура</button>
+        <button
+          class="primary-button"
+          id="tour-button"
+          (click)="displayMessagingService.addMessage('Программа недоступна', MessageType.WARNING)"
+        >
+          Программа тура
+        </button>
       </div>
     </div>
   </section>
 
-  <section class="offer">
+  <section class="main-background-color alt offer">
     <div class="offer__inner container">
-      <div class="offer__body content-block">
-        <hgroup class="hgroup">
+      <div class="offer__body">
+        <hgroup class="hgroup_start">
           <p>наше предложение</p>
           <h2>Лучшие программы для тебя</h2>
         </hgroup>
@@ -162,7 +191,11 @@
           </div>
         }
 
-        <button class="primary-button" id="price-button">Стоимость программ</button>
+        <button
+          class="primary-button"
+          id="price-button"
+          (click)="displayMessagingService.addMessage('Стоимость отправлена на почту', MessageType.INFO)"
+        >Стоимость программ</button>
 
       </div>
       <div class="offer__visuals flower-visual">
@@ -172,6 +205,75 @@
         <img src="/images/flower-visual/snowmobile.png" alt="snowmobile">
         <img src="/images/flower-visual/mountain_river_mouth.png" alt="mountain river mouth">
       </div>
+    </div>
+  </section>
+
+  <section class="destinations">
+   <div class="main-background-color destinations__inner">
+     <hgroup class="hgroup_center">
+       <p>по версии отдыхающих</p>
+       <h2>Популярные направления</h2>
+     </hgroup>
+     <ul class="destinations__list container">
+       @for (destination of destinations; track destination.id) {
+         <li class="destinations__item destination">
+           <img [src]="`/images/destinations/${destination.image}.png`" [alt]="destination.title">
+           <div class="destination__rating">
+             <img src="/icon/round-star_icon.svg" alt="star">
+             <span>{{ destination.rating.toFixed(1) }}</span>
+           </div>
+           <div class="destination__content">
+             <div>
+               <h3>{{ destination.title }}</h3>
+               <p>{{ destination.description }}</p>
+             </div>
+             <div class="destination__price">
+               <span>{{ `${destination.price} ${DOLLAR_SIGN}` }}</span>
+             </div>
+           </div>
+         </li>
+       }
+     </ul>
+   </div>
+    <div class="destinations__button main-background-color alt">
+      <button
+        class="primary-button"
+        id="rating-button"
+        (click)="displayMessagingService.addMessage('Неправления получены', MessageType.SUCCESS)"
+      >Рейтинг направлений</button>
+    </div>
+  </section>
+
+  <section class="travels">
+    <div class="main-background-color alt travels__inner">
+      <hgroup class="hgroup_center">
+        <p>делимся впечатлениями</p>
+        <h2>Блог о путешествиях</h2>
+      </hgroup>
+      <ul class="travels__list container">
+        @for (travel of travels; track travel.id) {
+          <li class="travels__item travel">
+            <img [src]="`/images/travel/${travel.image}.png`" [alt]="travel.image">
+            <div class="travel__content">
+              <h3>{{ travel.title }}</h3>
+              <p>{{ travel.description }}</p>
+              <div class="travel__foo">
+                <time>{{ travel.date.toLocaleDateString("en-GB") }}</time>
+                <a [href]="travel.url" [id]="`travel${travel.id}` ">читать статью</a>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="travels__button main-background-color ">
+      <button
+        class="primary-button"
+        id="rating-button"
+        (click)="displayMessagingService.addMessage('Материалы недоступны', MessageType.ERROR)"
+      >
+        Другие материалы
+      </button>
     </div>
   </section>
 </main>

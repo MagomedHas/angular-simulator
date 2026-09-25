@@ -3,12 +3,16 @@
   .offer__inner {
     padding-block: 80px 100px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
 
   .offer__body {
     max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .offer__feature {

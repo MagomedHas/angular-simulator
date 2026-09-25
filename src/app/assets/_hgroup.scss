@@ -1,0 +1,32 @@
+
+@mixin hgroup {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: var(--secondary-font-color);
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  h2 {
+    margin-top: 8px;
+    color: var(--primary-font-color);
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 120%;
+  }
+}
+
+.hgroup_start {
+  @include hgroup;
+  align-items: flex-start;
+
+}
+
+.hgroup_center {
+  @include hgroup;
+  align-items: center;
+
+}

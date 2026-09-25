@@ -1,11 +1,17 @@
 @use "fonts";
 @use "normailze";
 @use "button";
+@use "hgroup";
+@use "message";
 
+@use "chat";
 @use "header";
 @use "search";
 @use "hike";
 @use "offer";
+@use "destinations";
+@use "travels";
+
 * {
   font-family: 'Nunito Sans', serif;
 }
@@ -21,8 +27,9 @@
   --footer-color: #1A3E3E;
   --below-footer-color: #18121E;
 
-  --primary-block-color: #ffffff;
+  --primary-block-color: rgb(255 255 255 / 0);
   --secondary-block-color: #F3F5F4;
+  --travel-block-color: #FDFDFD;
   --search-block-color: #FFFFFF33;
   --loading-block-color: #D9D9D9;
 

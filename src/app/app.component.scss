@@ -3,26 +3,10 @@ a {
 }
 
 .container {
-  width: 1180px;
-  margin: 0 auto;
+  max-width: 1180px;
+  margin-inline: auto;
 }
 
-.hgroup {
-  p {
-    color: var(--secondary-font-color);
-    font-size: 24px;
-    line-height: 20px;
-    font-weight: 400;
-  }
-
-  h2 {
-    margin-top: 8px;
-    color: var(--primary-font-color);
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 120%;
-  }
-}
 
 .text {
   color: var(--primary-font-color);
@@ -31,10 +15,13 @@ a {
   line-height: 150%;
 }
 
-main > section:nth-child(odd) {
-  background-color: var(--secondary-block-color);
+.main-background-color {
+  background-color: var(--primary-block-color);
 }
 
+.main-background-color.alt {
+  background-color: var(--secondary-block-color);
+}
 
 .content-block {
   margin-block: auto;
