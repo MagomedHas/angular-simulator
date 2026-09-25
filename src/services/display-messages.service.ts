@@ -21,11 +21,9 @@ export class DisplayMessagesService {
     )
     setTimeout( () => {
       this.closeMessages(id);
-        console.log(id);
       } ,
       5000
     )
-    console.log(DisplayMessagesService.nextId);
     DisplayMessagesService.nextId++;
   }
 

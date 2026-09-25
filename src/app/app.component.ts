@@ -7,7 +7,6 @@ import { IDestination } from '../interfaces/IDestination';
 import { ITravel } from '../interfaces/ITravel';
 import { NgTemplateOutlet } from '@angular/common';
 import { DisplayMessagesService } from '../services/display-messages.service';
-import { MessageType } from '../enums/Message';
 
 @Component({
   selector: 'app-root',
@@ -169,7 +168,6 @@ export class AppComponent {
     localStorage.setItem('lastLogin', date.toString());
   }
 
-  protected readonly MessageType = MessageType;
 }
 
 export default AppComponent

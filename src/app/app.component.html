@@ -29,7 +29,7 @@
           </li>
         </ul>
       </nav>
-      <button class="header__button inverted-button">Консультация</button>
+      <button class="header__button inverted-button" id="consultation-button">Консультация</button>
       @if (module === 'watch') {
         <div class="header__module module">
           <p>{{ clock }}</p>
@@ -122,7 +122,7 @@
             </select>
             <label for="participants">минимум 4 человека</label>
           </div>
-          <button class="primary-button" [disabled]="!isFormValid()">Найти программу</button>
+          <button class="primary-button" id="search-button" [disabled]="!isFormValid()">Найти программу</button>
         </form>
       </div>
       <div class="live-input">
@@ -148,7 +148,7 @@
         </div>
         <div class="hike__visual placeholder_player">
           <img src="/images/house_forest.png" alt="house_forest" class="placeholder_player__poster">
-          <button class="placeholder_player__button-play">
+          <button class="placeholder_player__button-play" id="play-botton">
             <img src="/icon/play_icon.svg">
           </button>
         </div>
