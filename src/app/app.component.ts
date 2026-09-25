@@ -171,5 +171,3 @@ export class AppComponent {
   }
 
 }
-
-export default AppComponent
