@@ -8,10 +8,10 @@ import {MessageType} from '../enums/Message';
 export class DisplayMessagesService {
 
   messages: IMessage[] = [];
-  private static nextId: number = 1;
+  private nextId: number = 1;
 
   addMessage(message: string , type: MessageType): void {
-    const id: number = DisplayMessagesService.nextId++;
+    const id: number = this.nextId;
     this.messages.push(
       {
         id: id,
@@ -24,7 +24,7 @@ export class DisplayMessagesService {
       } ,
       5000
     )
-    DisplayMessagesService.nextId++;
+    this.nextId++;
   }
 
   closeMessages(id: number): void {
