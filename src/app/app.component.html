@@ -1,52 +1,5 @@
 
 <div class="chat ">
-  <header class="chat__header header">
-
-    <div class="header__inner container">
-      <div class="header__logo">
-        <img src="/icon/logo_icon.svg" alt="РУМТИБЕТ">
-        <p>{{ companyName }}</p>
-      </div>
-      <nav>
-        <ul class="header__nav">
-          <li>
-            <a id="nav-home" href="/">Главная</a>
-          </li>
-          <li>
-            <a id="nav-about" href="/">Про гида</a>
-          </li>
-          <li>
-            <a id="nav-program" href="/">Программа тура</a>
-          </li>
-          <li>
-            <a id="nav-price" href="/">Стоимость</a>
-          </li>
-          <li>
-            <a id="nav-blog" href="/">Блог</a>
-          </li>
-          <li>
-            <a id="nav-contacts" href="/">Контакты</a>
-          </li>
-        </ul>
-      </nav>
-      <button class="header__button inverted-button" id="consultation-button">Консультация</button>
-      @if (module === 'watch') {
-        <div class="header__module module">
-          <p>{{ clock }}</p>
-          <button class="inverted-button" id="counter-switch-button" (click)="module = 'counter'">Показать кликер</button>
-        </div>
-      } @else if (module === 'counter') {
-        <div class="header__module module">
-          <div class="counter-module">
-            <button id="button-add-counter" (click)="counter += 1">+</button>
-            <p>{{ counter }}</p>
-            <button id="button-sub-counter" (click)="counter -= 1">-</button>
-          </div>
-          <button class="inverted-button" id="clock-switch-button" (click)="module = 'watch'">Показать дату</button>
-        </div>
-      }
-    </div>
-  </header>
   <div class=" chat__massages">
 
     @for (msg of displayMessagingService.messages; track msg.id) {
@@ -54,10 +7,10 @@
         *ngTemplateOutlet="messageTemplate; context: { $implicit: msg }">
       </ng-container>
     }
-
   </div>
 </div>
 
+<app-header [companyName]="companyName" ></app-header>
 <ng-template #messageTemplate let-msg>
   <div class="message">
     <button

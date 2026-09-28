@@ -8,10 +8,11 @@ import { ITravel } from '../interfaces/ITravel';
 import { NgTemplateOutlet } from '@angular/common';
 import { DisplayMessagesService } from '../services/display-messages.service';
 import { MessageType } from '../enums/Message';
+import {HeaderComponent} from './header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgTemplateOutlet],
+  imports: [FormsModule, NgTemplateOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

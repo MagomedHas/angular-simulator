@@ -3,10 +3,18 @@ a {
 }
 
 .container {
-  max-width: 1180px;
-  margin-inline: auto;
+  width: 1180px;
+  margin: 0 auto;
 }
 
+.hgroup {
+  p {
+    color: var(--secondary-font-color);
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
 
 .text {
   color: var(--primary-font-color);

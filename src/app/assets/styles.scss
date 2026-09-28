@@ -5,7 +5,6 @@
 @use "message";
 
 @use "chat";
-@use "header";
 @use "search";
 @use "hike";
 @use "offer";
@@ -38,4 +37,9 @@
 
   --small-border-radius: 4px;
   --petal-border-radius: 50px;
+}
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
 }
