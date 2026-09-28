@@ -1,0 +1,11 @@
+.messages {
+  width: auto;
+  top: 135px;
+  right: 15px;
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}

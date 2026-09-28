@@ -1,16 +1,14 @@
 
-<div class="chat ">
-  <div class=" chat__massages">
+<app-header [companyName]="companyName"></app-header>
 
-    @for (msg of displayMessagingService.messages; track msg.id) {
-      <ng-container
-        *ngTemplateOutlet="messageTemplate; context: { $implicit: msg }">
-      </ng-container>
-    }
-  </div>
+<div class="messages">
+  @for (msg of displayMessagingService.messages; track msg.id) {
+    <ng-container
+      *ngTemplateOutlet="messageTemplate; context: { $implicit: msg }">
+    </ng-container>
+  }
 </div>
 
-<app-header [companyName]="companyName" ></app-header>
 <ng-template #messageTemplate let-msg>
   <div class="message">
     <button
