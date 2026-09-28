@@ -204,41 +204,44 @@
 </section>
 
 
-<section class="main-background-color container photo-report">
-  <hgroup class="hgroup_center">
-    <p>фото-отчет</p>
-    <h2>Делимся впечатлениями</h2>
-  </hgroup>
+<section class="main-background-color  photo-report">
+  <div class="photo-report__inner container">
+    <hgroup class="hgroup_center">
+      <p>фото-отчет</p>
+      <h2>Делимся впечатлениями</h2>
+    </hgroup>
 
-  <div class="photo-report__inner">
-    <ul class="gallery">
-      <li>
-        <img src="/images/photo-report/balloons.png" alt="balloons">
-      </li>
-      <li>
-        <img src="/images/photo-report/new_map.png" alt="new_map">
-      </li>
-      <li>
-        <img src="/images/photo-report/skyscraper.png" alt="skyscraper">
-      </li>
-      <li>
-        <img src="/images/photo-report/shore.png" alt="shore">
-      </li>
-      <li>
-        <img src="/images/photo-report/canyon.png" alt="canyon">
-      </li>
-      <li>
-        <img src="/images/photo-report/old_map.png" alt="old_map">
-      </li>
-    </ul>
+    <div class="photo-report__inner">
+      <ul class="gallery">
+        <li>
+          <img src="/images/photo-report/balloons.png" alt="balloons">
+        </li>
+        <li>
+          <img src="/images/photo-report/new_map.png" alt="new_map">
+        </li>
+        <li>
+          <img src="/images/photo-report/skyscraper.png" alt="skyscraper">
+        </li>
+        <li>
+          <img src="/images/photo-report/shore.png" alt="shore">
+        </li>
+        <li>
+          <img src="/images/photo-report/canyon.png" alt="canyon">
+        </li>
+        <li>
+          <img src="/images/photo-report/old_map.png" alt="old_map">
+        </li>
+      </ul>
+    </div>
+
+    <button
+      class="primary-button "
+      id="pinterest-button"
+      (click)="displayMessagingService.addMessage('pinterest недоступны', MessageType.ERROR)"
+    >
+      Наш pinterest
+    </button>
+
   </div>
-
-  <button
-    class="primary-button "
-    id="pinterest-button"
-    (click)="displayMessagingService.addMessage('pinterest недоступны', MessageType.ERROR)"
-  >
-    Наш pinterest
-  </button>
 
 </section>

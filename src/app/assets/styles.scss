@@ -69,6 +69,14 @@ a {
   background-color: var(--secondary-block-color);
 }
 
+.main-background-color:last-child:after {
+  content: "";
+  position: absolute;
+  height: auto;
+  z-index: -2;
+  background-color: inherit;
+}
+
 .content-block {
   margin-block: auto;
   display: flex;
