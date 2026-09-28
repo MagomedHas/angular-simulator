@@ -15,6 +15,10 @@
   font-family: 'Nunito Sans', serif;
 }
 
+a {
+  cursor: pointer;
+}
+
 :root {
   --primary-font-color: #18121E;
   --inverted-font-color: #FDFDFD;
@@ -42,4 +46,31 @@
 .container {
   width: 1180px;
   margin: 0 auto;
+}
+
+.display_none {
+  display: none;
+}
+
+.text {
+  color: var(--primary-font-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+
+.main-background-color {
+  background-color: var(--primary-block-color);
+}
+
+.main-background-color.alt {
+  background-color: var(--secondary-block-color);
+}
+
+.content-block {
+  margin-block: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
