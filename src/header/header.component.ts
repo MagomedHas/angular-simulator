@@ -14,6 +14,19 @@ export class HeaderComponent {
   clock: string = '';
   counter: number = 0;
 
+  pages: IPage[] = [
+    {
+      id: 0,
+      name: 'Главная',
+      href: ''
+    },
+    {
+      id: 1,
+      name: 'Пользователи',
+      href: 'users'
+    }
+  ];
+
   constructor() {
     this.startClock();
   }
