@@ -10,7 +10,7 @@ export class DisplayMessagesService {
   messages: IMessage[] = [];
   private nextId: number = 1;
 
-  addMessage(message: string , type: MessageType): void {
+  private addMessage(message: string , type: MessageType): void {
     const id: number = this.nextId;
     this.messages.push(
       {
@@ -31,4 +31,18 @@ export class DisplayMessagesService {
     this.messages = this.messages.filter(msg => msg.id !== id);
   }
 
+  showWarn(message: string): void {
+    this.addMessage(message, MessageType.WARNING);
+  }
+
+  showError(message: string): void {
+    this.addMessage(message, MessageType.ERROR);
+  }
+
+  showSuccess(message: string): void {
+    this.addMessage(message, MessageType.SUCCESS);
+  }
+  showInfo(message: string): void {
+    this.addMessage(message, MessageType.INFO);
+  }
 }

@@ -91,7 +91,7 @@
       <button
         class="primary-button"
         id="tour-button"
-        (click)="displayMessagingService.addMessage('Программа недоступна', MessageType.WARNING)"
+        (click)="displayMessagingService.showWarn('Программа недоступна')"
       >
         Программа тура
       </button>
@@ -120,7 +120,7 @@
       <button
         class="primary-button"
         id="price-button"
-        (click)="displayMessagingService.addMessage('Стоимость отправлена на почту', MessageType.INFO)"
+        (click)="displayMessagingService.showInfo('Стоимость отправлена на почту')"
       >Стоимость программ</button>
 
     </div>
@@ -165,7 +165,7 @@
     <button
       class="primary-button"
       id="rating-button"
-      (click)="displayMessagingService.addMessage('Неправления получены', MessageType.SUCCESS)"
+      (click)="displayMessagingService.showSuccess('Неправления получены')"
     >Рейтинг направлений</button>
   </div>
 </section>
@@ -196,7 +196,7 @@
     <button
       class="primary-button"
       id="rating-button"
-      (click)="displayMessagingService.addMessage('Материалы недоступны', MessageType.ERROR)"
+      (click)="displayMessagingService.showError('Материалы недоступны')"
     >
       Другие материалы
     </button>
@@ -236,7 +236,7 @@
     <button
       class="primary-button "
       id="pinterest-button"
-      (click)="displayMessagingService.addMessage('pinterest недоступны', MessageType.ERROR)"
+      (click)="displayMessagingService.showError('pinterest недоступны')"
     >
       Наш pinterest
     </button>
