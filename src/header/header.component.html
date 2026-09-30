@@ -10,24 +10,11 @@
     </div>
     <nav>
       <ul class="header__nav">
-        <li>
-          <a id="nav-home" href="/public">Главная</a>
-        </li>
-        <li>
-          <a id="nav-about" href="/public">Про гида</a>
-        </li>
-        <li>
-          <a id="nav-program" href="/public">Программа тура</a>
-        </li>
-        <li>
-          <a id="nav-price" href="/public">Стоимость</a>
-        </li>
-        <li>
-          <a id="nav-blog" href="/public">Блог</a>
-        </li>
-        <li>
-          <a id="nav-contacts" href="/public">Контакты</a>
-        </li>
+        @for (page of pages; track page.id) {
+          <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: (page.href === '')}">
+            <a [routerLink]="page.href">{{ page.name }}</a>
+          </li>
+        }
       </ul>
     </nav>
     <button class="header__button inverted-button">Консультация</button>

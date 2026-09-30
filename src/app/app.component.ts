@@ -9,6 +9,7 @@ import {HeaderComponent} from '../header/header.component';
 import {HomePageComponent} from '../home-page/home-page.component';
 import {FooterComponent} from '../footer/footer.component';
 import {RouterOutlet} from '@angular/router';
+import {IPage} from '../interfaces/IPage';
 
 @Component({
   selector: 'app-root',
