@@ -8,10 +8,11 @@ import { MessageType } from '../enums/Message';
 import {HeaderComponent} from '../header/header.component';
 import {HomePageComponent} from '../home-page/home-page.component';
 import {FooterComponent} from '../footer/footer.component';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgTemplateOutlet, HeaderComponent, HomePageComponent, FooterComponent],
+  imports: [FormsModule, NgTemplateOutlet, HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
