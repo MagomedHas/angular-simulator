@@ -49,6 +49,11 @@
   }
 }
 
+.active-link {
+  color: var(--link-font-color);
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
 
 .module {
   color: var(--inverted-font-color);
