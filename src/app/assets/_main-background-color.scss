@@ -1,0 +1,28 @@
+.main-background-color {
+  background-color: var(--primary-block-color);
+}
+
+.main-background-color.alt {
+  background-color: var(--secondary-block-color);
+}
+
+.main-background-color.error {
+  background-color: var(--error-block-color);
+}
+
+.main-background-color:last-child {
+  position: relative;
+}
+
+
+.main-background-color:last-child:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: -10;
+  background: inherit;
+
+}

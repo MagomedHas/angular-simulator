@@ -4,6 +4,8 @@
 @use "hgroup";
 @use "messages";
 @use "message";
+@use "main-background-color";
+@use "vars";
 
 @use "search";
 @use "hike";
@@ -20,29 +22,6 @@ a {
   cursor: pointer;
 }
 
-:root {
-  --primary-font-color: #18121E;
-  --inverted-font-color: #FDFDFD;
-  --secondary-font-color: #F2BE22;
-  --link-font-color: #1A3E3E;
-  --footer-font-color: #FFFFFF;
-  --header-color: #18121E80;
-
-  --footer-color: #1A3E3E;
-  --below-footer-color: #18121E;
-
-  --primary-block-color: rgb(255 255 255 / 0);
-  --secondary-block-color: #F3F5F4;
-  --travel-block-color: #FDFDFD;
-  --search-block-color: #FFFFFF33;
-  --loading-block-color: #D9D9D9;
-
-  --font-button-color: #FDFDFD;
-  --background-button-color: #1A3E3E;
-
-  --small-border-radius: 4px;
-  --petal-border-radius: 50px;
-}
 
 .container {
   max-width: 1180px;
@@ -61,21 +40,7 @@ a {
 }
 
 
-.main-background-color {
-  background-color: var(--primary-block-color);
-}
 
-.main-background-color.alt {
-  background-color: var(--secondary-block-color);
-}
-
-.main-background-color:last-child:after {
-  content: "";
-  position: absolute;
-  height: auto;
-  z-index: -2;
-  background-color: inherit;
-}
 
 .content-block {
   margin-block: auto;
