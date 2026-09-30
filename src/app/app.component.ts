@@ -1,10 +1,10 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import './training';
-import { Color } from '../enums/Color';
-import { FormsModule } from '@angular/forms';
-import { NgTemplateOutlet } from '@angular/common';
-import { DisplayMessagesService } from '../services/display-messages.service';
-import { MessageType } from '../enums/Message';
+import {Color} from '../enums/Color';
+import {FormsModule} from '@angular/forms';
+import {NgTemplateOutlet} from '@angular/common';
+import {DisplayMessagesService} from '../services/display-messages.service';
+import {MessageType} from '../enums/Message';
 import {HeaderComponent} from '../header/header.component';
 import {FooterComponent} from '../footer/footer.component';
 import {RouterOutlet} from '@angular/router';

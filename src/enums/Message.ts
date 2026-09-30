@@ -1,4 +1,4 @@
-export  enum MessageType {
+export enum MessageType {
   SUCCESS = "Success",
   ERROR = "Error",
   INFO = "Info",

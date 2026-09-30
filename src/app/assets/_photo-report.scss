@@ -7,6 +7,7 @@
     justify-content: center;
     padding-top: 180px;
   }
+
   hgroup {
     margin-bottom: 40px;
   }
@@ -23,7 +24,7 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 280px);
-  grid-auto-rows:  250px;
+  grid-auto-rows: 250px;
   gap: 20px;
 
   img {
@@ -38,8 +39,8 @@
 
   }
 
- li:nth-child(1),
- li:nth-child(5) {
+  li:nth-child(1),
+  li:nth-child(5) {
     grid-column-end: span 2;
   }
 

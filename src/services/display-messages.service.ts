@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IMessage} from '../interfaces/IMessage';
 import {MessageType} from '../enums/Message';
 
@@ -9,23 +9,6 @@ export class DisplayMessagesService {
 
   messages: IMessage[] = [];
   private nextId: number = 1;
-
-  private addMessage(message: string , type: MessageType): void {
-    const id: number = this.nextId;
-    this.messages.push(
-      {
-        id: id,
-        type: type,
-        message: message
-      }
-    )
-    setTimeout( () => {
-      this.closeMessages(id);
-      } ,
-      5000
-    )
-    this.nextId++;
-  }
 
   closeMessages(id: number): void {
     this.messages = this.messages.filter(msg => msg.id !== id);
@@ -42,7 +25,25 @@ export class DisplayMessagesService {
   showSuccess(message: string): void {
     this.addMessage(message, MessageType.SUCCESS);
   }
+
   showInfo(message: string): void {
     this.addMessage(message, MessageType.INFO);
+  }
+
+  private addMessage(message: string, type: MessageType): void {
+    const id: number = this.nextId;
+    this.messages.push(
+      {
+        id: id,
+        type: type,
+        message: message
+      }
+    )
+    setTimeout(() => {
+        this.closeMessages(id);
+      },
+      5000
+    )
+    this.nextId++;
   }
 }

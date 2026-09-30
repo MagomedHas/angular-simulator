@@ -107,6 +107,7 @@ export class HomePageComponent {
       price: 230
     }
   ]
+  protected readonly MessageType = MessageType;
 
   isFormValid(): boolean {
     return !!(
@@ -115,5 +116,4 @@ export class HomePageComponent {
       this.participantsInput.length >= 4
     );
   }
-  protected readonly MessageType = MessageType;
 }

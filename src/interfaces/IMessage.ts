@@ -1,4 +1,5 @@
-import { MessageType } from "../enums/Message"
+import {MessageType} from "../enums/Message"
+
 export interface IMessage {
   id: number;
   type: MessageType;

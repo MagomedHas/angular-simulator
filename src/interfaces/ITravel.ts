@@ -3,6 +3,6 @@ export interface ITravel {
   image: string;
   title: string;
   description: string;
-  date:  Date;
+  date: Date;
   url: string;
 }

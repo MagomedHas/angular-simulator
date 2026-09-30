@@ -1,17 +1,15 @@
-
-
 <header class="header">
   <div class="header__inner container">
     <div class="header__logo">
-      <a id="logo" href=" ">
-        <img src="/icon/logo_icon.svg" alt="РУМТИБЕТ">
+      <a href=" " id="logo">
+        <img alt="РУМТИБЕТ" src="/icon/logo_icon.svg">
       </a>
       <p>{{ companyName() }}</p>
     </div>
     <nav>
       <ul class="header__nav">
         @for (page of pages; track page.id) {
-          <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: (page.href === '')}">
+          <li [routerLinkActiveOptions]="{exact: (page.href === '')}" routerLinkActive="active-link">
             <a [routerLink]="page.href">{{ page.name }}</a>
           </li>
         }
@@ -21,16 +19,16 @@
     @if (module === 'watch') {
       <div class="header__module module">
         <p>{{ clock }}</p>
-        <button class="inverted-button" id="counter-switch-button" (click)="module = 'counter'">Показать кликер</button>
+        <button (click)="module = 'counter'" class="inverted-button" id="counter-switch-button">Показать кликер</button>
       </div>
     } @else if (module === 'counter') {
       <div class="header__module module">
         <div class="counter-module">
-          <button id="button-add-counter" (click)="counter += 1">+</button>
+          <button (click)="counter += 1" id="button-add-counter">+</button>
           <p>{{ counter }}</p>
-          <button id="button-sub-counter" (click)="counter -= 1">-</button>
+          <button (click)="counter -= 1" id="button-sub-counter">-</button>
         </div>
-        <button class="inverted-button" id="clock-switch-button" (click)="module = 'watch'">Показать дату</button>
+        <button (click)="module = 'watch'" class="inverted-button" id="clock-switch-button">Показать дату</button>
       </div>
     }
   </div>

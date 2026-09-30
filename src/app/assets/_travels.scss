@@ -1,5 +1,6 @@
 .travels {
   align-items: center;
+
   &__inner {
     justify-content: space-between;
     display: flex;
@@ -37,6 +38,7 @@
   grid-template-columns: 230px 1fr;
   gap: 24px;
   transition: background-color 0.3s ease;
+
   & > img {
     width: 100%;
     height: 100%;
