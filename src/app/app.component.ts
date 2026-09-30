@@ -6,10 +6,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import { DisplayMessagesService } from '../services/display-messages.service';
 import { MessageType } from '../enums/Message';
 import {HeaderComponent} from '../header/header.component';
-import {HomePageComponent} from '../home-page/home-page.component';
 import {FooterComponent} from '../footer/footer.component';
 import {RouterOutlet} from '@angular/router';
-import {IPage} from '../interfaces/IPage';
 
 @Component({
   selector: 'app-root',
