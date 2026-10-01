@@ -18,7 +18,7 @@ import {RouterOutlet} from '@angular/router';
 export class AppComponent {
 
   displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
-  protected readonly MessageType: typeof MessageType = MessageType;
+   MessageType: typeof MessageType = MessageType;
 
   companyName: string = 'РУМТИБЕТ';
   loaderClass: string = 'display_none';
