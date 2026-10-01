@@ -6,23 +6,15 @@
   grid-gap: 10px;
 
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+
+  .flower-visual__top-left-petal,
+  .flower-visual__bottom-right-petal {
+    --border-radius: 0 var(--petal-border-radius);
   }
 
-  img:nth-child(1),
-  img:nth-child(4) {
-    border-top-right-radius: var(--petal-border-radius);
-    border-bottom-left-radius: var(--petal-border-radius);
-  }
-
-  img:nth-child(2),
-  img:nth-child(3) {
-    border-top-left-radius: var(--petal-border-radius);
-    border-bottom-right-radius: var(--petal-border-radius);
+  .flower-visual__top-right-petal,
+  .flower-visual__bottom-left-petal {
+    --border-radius: var(--petal-border-radius) 0;
   }
 }
 

@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, InputSignal} from '@angular/core';
 import {IPage} from '../interfaces/IPage';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
@@ -14,7 +14,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 export class HeaderComponent {
 
 
-  companyName = input<string>('companyName');
+  companyName: InputSignal<string> = input<string>('companyName');
   module: string = 'watch';
   clock: string = '';
   counter: number = 0;

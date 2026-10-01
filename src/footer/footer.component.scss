@@ -93,10 +93,9 @@ footer {
   background-color: var(--footer-color);
   padding-block: 80px;
 
-  list-style-position: inside;
-  list-style-image: url("/icon/right-arrow_icon.svg");
   font-weight: 400;
   font-size: 14px;
+
 
   &__inner {
     display: flex;
@@ -110,11 +109,6 @@ footer {
     line-height: 20px;
     padding-right: 24px;
     margin-bottom: 80px;
-  }
-
-  li {
-    line-height: 18px;
-    margin-bottom: 16px;
   }
 
   &__main {
@@ -152,6 +146,20 @@ footer {
     line-height: 24px;
     margin-bottom: 20px;
   }
+}
+
+.footer__services-list,
+.footer__important-list {
+  list-style-position: inside;
+  list-style-image: url("/icon/right-arrow_icon.svg");
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__services-item,
+.footer__important-item {
+  line-height: 18px;
 }
 
 .footer-foo {

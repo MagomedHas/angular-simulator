@@ -68,11 +68,11 @@
 <section class="main-background-color hike">
   <div class="hike__inner container">
     <div class="hike__visuals ">
-      <div class="hike__visual">
-        <img alt="mountain" class="hike__visual" src="/images/mountain.png">
+      <div class="hike__visual frame_with_img">
+        <img  src="/images/mountain.png" alt="mountain">
       </div>
-      <div class="hike__visual placeholder_player">
-        <img alt="house_forest" class="placeholder_player__poster" src="/images/house_forest.png">
+      <div class="hike__visual  frame_with_img placeholder_player">
+        <img  src="/images/house_forest.png" alt="house_forest">
         <button class="placeholder_player__button-play" id="play-botton">
           <img alt="play-botton" src="/icon/play_icon.svg">
         </button>
@@ -124,12 +124,12 @@
       </button>
 
     </div>
-    <div class="offer__visuals flower-visual">
+    <div class="offer__visuals flower-visual frame_with_img">
 
-      <img alt="Tea by the lake" src="/images/flower-visual/Tea_by_the_lake.png">
-      <img alt="mountain_river" src="/images/flower-visual/mountain_river.png">
-      <img alt="snowmobile" src="/images/flower-visual/snowmobile.png">
-      <img alt="mountain river mouth" src="/images/flower-visual/mountain_river_mouth.png">
+      <img class="frame_with_img flower-visual__top-left-petal frame_with_img" alt="Tea by the lake" src="/images/flower-visual/Tea_by_the_lake.png">
+      <img class="frame_with_img flower-visual__top-right-petal" alt="mountain_river" src="/images/flower-visual/mountain_river.png">
+      <img class="frame_with_img flower-visual__bottom-left-petal" alt="snowmobile" src="/images/flower-visual/snowmobile.png">
+      <img class="frame_with_img flower-visual__bottom-right-petal" alt="mountain river mouth" src="/images/flower-visual/mountain_river_mouth.png">
     </div>
   </div>
 </section>
@@ -142,10 +142,10 @@
     </hgroup>
     <ul class="destinations__list container">
       @for (destination of destinations; track destination.id) {
-        <li class="destinations__item destination">
-          <img [alt]="destination.title" [src]="`/images/destinations/${destination.image}.png`">
+        <li class="destinations__item destination frame_with_img">
+          <img  [alt]="destination.title" [src]="`/images/destinations/${destination.image}.png`">
           <div class="destination__rating">
-            <img alt="star" src="/icon/round-star_icon.svg">
+            <img class="destination__star" alt="star" src="/icon/round-star_icon.svg">
             <span>{{ destination.rating.toFixed(1) }}</span>
           </div>
           <div class="destination__content">
@@ -179,7 +179,7 @@
     </hgroup>
     <ul class="travels__list container">
       @for (travel of travels; track travel.id) {
-        <li class="travels__item travel">
+        <li class="travels__item travel frame_with_img">
           <img [alt]="travel.image" [src]="`/images/travel/${travel.image}.png`">
           <div class="travel__content">
             <h3>{{ travel.title }}</h3>
@@ -213,22 +213,22 @@
 
     <div class="photo-report__inner">
       <ul class="gallery">
-        <li>
+        <li class="frame_with_img gallery__double">
           <img alt="balloons" src="/images/photo-report/balloons.png">
         </li>
-        <li>
+        <li class="frame_with_img">
           <img alt="new_map" src="/images/photo-report/new_map.png">
         </li>
-        <li>
+        <li class="frame_with_img">
           <img alt="skyscraper" src="/images/photo-report/skyscraper.png">
         </li>
-        <li>
+        <li class="frame_with_img">
           <img alt="shore" src="/images/photo-report/shore.png">
         </li>
-        <li>
+        <li class="frame_with_img gallery__double">
           <img alt="canyon" src="/images/photo-report/canyon.png">
         </li>
-        <li>
+        <li class="frame_with_img">
           <img alt="old_map" src="/images/photo-report/old_map.png">
         </li>
       </ul>

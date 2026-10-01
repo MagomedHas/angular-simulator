@@ -22,6 +22,15 @@ a {
   cursor: pointer;
 }
 
+.frame_with_img > img {
+
+
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .container {
   max-width: 1180px;

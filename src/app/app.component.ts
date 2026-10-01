@@ -16,13 +16,13 @@ import {RouterOutlet} from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
   displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
+  protected readonly MessageType: typeof MessageType = MessageType;
 
   companyName: string = 'РУМТИБЕТ';
   loaderClass: string = 'display_none';
   clock: string = '';
-
-  protected readonly MessageType: typeof MessageType = MessageType;
 
   constructor() {
     this.loader(2000);

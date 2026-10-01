@@ -21,7 +21,21 @@
 
   --font-button-color: #FDFDFD;
   --background-button-color: #1A3E3E;
-
   --small-border-radius: 4px;
+}
+
+.hike .frame_with_img {
+  --border-radius: 24px;
+}
+
+.flower-visual {
   --petal-border-radius: 50px;
+}
+
+.destination .frame_with_img {
+  --border-radius: 24px;
+}
+
+.travel {
+  --border-radius: 10px;
 }
