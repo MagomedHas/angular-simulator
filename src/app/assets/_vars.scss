@@ -1,0 +1,41 @@
+
+:root {
+  --primary-font-color: #18121E;
+  --inverted-font-color: #FDFDFD;
+  --secondary-font-color: #F2BE22;
+  --link-font-color: #1A3E3E;
+  --footer-font-color: #FFFFFF;
+  --error-font-color: red;
+
+  --header-color: #18121E80;
+
+  --footer-color: #1A3E3E;
+  --below-footer-color: #18121E;
+
+  --primary-block-color: rgb(255 255 255 / 0);
+  --secondary-block-color: #F3F5F4;
+  --travel-block-color: #FDFDFD;
+  --search-block-color: #FFFFFF33;
+  --loading-block-color: #D9D9D9;
+  --error-block-color: black;
+
+  --font-button-color: #FDFDFD;
+  --background-button-color: #1A3E3E;
+  --small-border-radius: 4px;
+}
+
+.hike .frame_with_img {
+  --border-radius: 24px;
+}
+
+.flower-visual {
+  --petal-border-radius: 50px;
+}
+
+.destination .frame_with_img {
+  --border-radius: 24px;
+}
+
+.travel {
+  --border-radius: 10px;
+}

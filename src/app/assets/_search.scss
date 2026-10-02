@@ -123,6 +123,8 @@
     align-items: center;
 
     img {
+      width: auto;
+      height: auto;
       transform: rotate(-90deg);
       position: absolute;
       right: 16px;

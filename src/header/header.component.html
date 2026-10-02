@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="header__inner container">
+    <div class="header__logo">
+      <a href=" " id="logo">
+        <img alt="РУМТИБЕТ" src="/icon/logo_icon.svg">
+      </a>
+      <p>{{ companyName() }}</p>
+    </div>
+    <nav>
+      <ul class="header__nav">
+        @for (page of pages; track page.id) {
+          <li [routerLinkActiveOptions]="{exact: (page.href === '')}" routerLinkActive="active-link">
+            <a [routerLink]="page.href">{{ page.name }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <button class="header__button inverted-button">Консультация</button>
+    @if (module === 'watch') {
+      <div class="header__module module">
+        <p>{{ clock }}</p>
+        <button (click)="module = 'counter'" class="inverted-button" id="counter-switch-button">Показать кликер</button>
+      </div>
+    } @else if (module === 'counter') {
+      <div class="header__module module">
+        <div class="counter-module">
+          <button (click)="counter += 1" id="button-add-counter">+</button>
+          <p>{{ counter }}</p>
+          <button (click)="counter -= 1" id="button-sub-counter">-</button>
+        </div>
+        <button (click)="module = 'watch'" class="inverted-button" id="clock-switch-button">Показать дату</button>
+      </div>
+    }
+  </div>
+</header>

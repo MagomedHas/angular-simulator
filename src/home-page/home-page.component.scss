@@ -1,0 +1,33 @@
+
+.flower-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+
+
+
+  .flower-visual__top-left-petal,
+  .flower-visual__bottom-right-petal {
+    --border-radius: 0 var(--petal-border-radius);
+  }
+
+  .flower-visual__top-right-petal,
+  .flower-visual__bottom-left-petal {
+    --border-radius: var(--petal-border-radius) 0;
+  }
+}
+
+
+.loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: var(--loading-block-color);
+}
+

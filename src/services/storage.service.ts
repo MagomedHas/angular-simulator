@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
-  set<T>(key: string, value: T) : void {
+  set<T>(key: string, value: T): void {
     localStorage.setItem(key, JSON.stringify(value))
   }
 
@@ -13,7 +13,7 @@ export class StorageService {
     const value: string | null = localStorage.getItem(key);
     if (value === null) return null;
     try {
-      return JSON.parse(value) ;
+      return JSON.parse(value);
     } catch {
       return null;
     }

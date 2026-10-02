@@ -1,0 +1,42 @@
+.photo-report {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
+    padding-top: 180px;
+  }
+
+  hgroup {
+    margin-bottom: 40px;
+  }
+
+  &__inner {
+    margin-bottom: 50px;
+  }
+
+  button {
+    margin-bottom: 100px;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  grid-auto-rows: 250px;
+  gap: 20px;
+
+
+  li {
+    overflow: hidden;
+    border-radius: 6px;
+
+  }
+
+
+  &__double {
+    grid-column-end: span 2;
+  }
+
+}

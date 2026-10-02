@@ -67,5 +67,5 @@ const users: IUser[] = [
   }
 ]
 
-users.sort((a, b) =>  a.age - b.age);
+users.sort((a, b) => a.age - b.age);
 console.log(users);

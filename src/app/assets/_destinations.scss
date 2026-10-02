@@ -1,5 +1,6 @@
 .destinations {
   align-items: center;
+
   &__inner {
     justify-content: space-between;
     display: flex;
@@ -43,9 +44,6 @@
 
   & > img {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   &__rating {

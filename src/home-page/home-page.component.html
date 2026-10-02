@@ -1,0 +1,247 @@
+<section class="search">
+  <div class="container">
+    <h1 class="search__title">
+      Насладись прогулкой в горах<br>с командой единомышленников
+    </h1>
+    <div class="search__inner">
+      <form class="search__form" id="search__form">
+        <div class="search__cell">
+          <select
+            [(ngModel)]="tourInput"
+            id="location"
+            name="location"
+            required
+          >
+            <option disabled selected value="">Локация для тура</option>
+            <option value="1">тур 1</option>
+            <option value="2">тур 2</option>
+          </select>
+          <label for="location">выберите из списка</label>
+        </div>
+        <div class="search__cell">
+          <input
+            [(ngModel)]="dateInput"
+            class="hike_date"
+            id="hike_date"
+            name="hike_date"
+            required
+            type="date"
+          />
+          <label for="hike_date">укажите дату</label>
+        </div>
+        <div class="search__cell">
+          <select
+            [(ngModel)]="participantsInput"
+            id="participants"
+            multiple
+            name="participants"
+            required
+            size="1"
+          >
+            <option disabled selected value="">Участники</option>
+            <option value="1">Участники</option>
+            <option value="2">Участники</option>
+            <option value="3">Участники</option>
+            <option value="4">Участники</option>
+            <option value="5">Участники</option>
+          </select>
+          <label for="participants">минимум 4 человека</label>
+        </div>
+        <button [disabled]="!isFormValid()" class="primary-button" id="search-button">Найти программу</button>
+      </form>
+    </div>
+    <div class="live-input">
+      <div class="input-box">
+        <img alt="Живой инпут" src="/icon/arrow-select_icon.svg">
+        <input
+          (input)="liveOutput = liveInput;"
+          [(ngModel)]="liveInput"
+          placeholder="Живой инпут"
+          type="text"
+        />
+      </div>
+      <p>{{ liveOutput }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="main-background-color hike">
+  <div class="hike__inner container">
+    <div class="hike__visuals ">
+      <div class="hike__visual frame_with_img">
+        <img  src="/images/mountain.png" alt="mountain">
+      </div>
+      <div class="hike__visual  frame_with_img placeholder_player">
+        <img  src="/images/house_forest.png" alt="house_forest">
+        <button class="placeholder_player__button-play" id="play-botton">
+          <img alt="play-botton" src="/icon/play_icon.svg">
+        </button>
+      </div>
+    </div>
+    <div class="hike__body content-block">
+      <hgroup class="hgroup_start">
+        <p>о нашем походе</p>
+        <h2>Исследуйте все горные массивы мира вместе с нами</h2>
+      </hgroup>
+      <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+        тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно
+        из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
+      </p>
+      <button
+        (click)="displayMessagingService.showWarn('Программа недоступна')"
+        class="primary-button"
+        id="tour-button"
+      >
+        Программа тура
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="main-background-color alt offer">
+  <div class="offer__inner container">
+    <div class="offer__body">
+      <hgroup class="hgroup_start">
+        <p>наше предложение</p>
+        <h2>Лучшие программы для тебя</h2>
+      </hgroup>
+      <p class="text">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+        тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
+
+      @for (feature of features; track feature.id) {
+        <div class="offer__feature feature">
+          <img [alt]="feature.title" [src]="`/images/offer/${feature.image}.png`">
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+
+      <button
+        (click)="displayMessagingService.showInfo('Стоимость отправлена на почту')"
+        class="primary-button"
+        id="price-button"
+      >Стоимость программ
+      </button>
+
+    </div>
+    <div class="offer__visuals flower-visual frame_with_img">
+
+      <img class="frame_with_img flower-visual__top-left-petal frame_with_img" alt="Tea by the lake" src="/images/flower-visual/Tea_by_the_lake.png">
+      <img class="frame_with_img flower-visual__top-right-petal" alt="mountain_river" src="/images/flower-visual/mountain_river.png">
+      <img class="frame_with_img flower-visual__bottom-left-petal" alt="snowmobile" src="/images/flower-visual/snowmobile.png">
+      <img class="frame_with_img flower-visual__bottom-right-petal" alt="mountain river mouth" src="/images/flower-visual/mountain_river_mouth.png">
+    </div>
+  </div>
+</section>
+
+<section class="destinations">
+  <div class="main-background-color destinations__inner">
+    <hgroup class="hgroup_center">
+      <p>по версии отдыхающих</p>
+      <h2>Популярные направления</h2>
+    </hgroup>
+    <ul class="destinations__list container">
+      @for (destination of destinations; track destination.id) {
+        <li class="destinations__item destination frame_with_img">
+          <img  [alt]="destination.title" [src]="`/images/destinations/${destination.image}.png`">
+          <div class="destination__rating">
+            <img class="destination__star" alt="star" src="/icon/round-star_icon.svg">
+            <span>{{ destination.rating.toFixed(1) }}</span>
+          </div>
+          <div class="destination__content">
+            <div>
+              <h3>{{ destination.title }}</h3>
+              <p>{{ destination.description }}</p>
+            </div>
+            <div class="destination__price">
+              <span>{{ `${destination.price} ${DOLLAR_SIGN}` }}</span>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="destinations__button main-background-color alt">
+    <button
+      (click)="displayMessagingService.showSuccess('Неправления получены')"
+      class="primary-button"
+      id="rating-button"
+    >Рейтинг направлений
+    </button>
+  </div>
+</section>
+
+<section class="travels">
+  <div class="main-background-color alt travels__inner">
+    <hgroup class="hgroup_center">
+      <p>делимся впечатлениями</p>
+      <h2>Блог о путешествиях</h2>
+    </hgroup>
+    <ul class="travels__list container">
+      @for (travel of travels; track travel.id) {
+        <li class="travels__item travel frame_with_img">
+          <img [alt]="travel.image" [src]="`/images/travel/${travel.image}.png`">
+          <div class="travel__content">
+            <h3>{{ travel.title }}</h3>
+            <p>{{ travel.description }}</p>
+            <div class="travel__foo">
+              <time>{{ travel.date.toLocaleDateString("en-GB") }}</time>
+              <a [href]="travel.url" [id]="`travel${travel.id}` ">читать статью</a>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="travels__button main-background-color ">
+    <button
+      (click)="displayMessagingService.showError('Материалы недоступны')"
+      class="primary-button"
+      id="rating-button"
+    >
+      Другие материалы
+    </button>
+  </div>
+</section>
+
+<section class="main-background-color  photo-report">
+  <div class="photo-report__inner container">
+    <hgroup class="hgroup_center">
+      <p>фото-отчет</p>
+      <h2>Делимся впечатлениями</h2>
+    </hgroup>
+
+    <div class="photo-report__inner">
+      <ul class="gallery">
+        <li class="frame_with_img gallery__double">
+          <img alt="balloons" src="/images/photo-report/balloons.png">
+        </li>
+        <li class="frame_with_img">
+          <img alt="new_map" src="/images/photo-report/new_map.png">
+        </li>
+        <li class="frame_with_img">
+          <img alt="skyscraper" src="/images/photo-report/skyscraper.png">
+        </li>
+        <li class="frame_with_img">
+          <img alt="shore" src="/images/photo-report/shore.png">
+        </li>
+        <li class="frame_with_img gallery__double">
+          <img alt="canyon" src="/images/photo-report/canyon.png">
+        </li>
+        <li class="frame_with_img">
+          <img alt="old_map" src="/images/photo-report/old_map.png">
+        </li>
+      </ul>
+    </div>
+
+    <button
+      (click)="displayMessagingService.showError('pinterest недоступны')"
+      class="primary-button "
+      id="pinterest-button"
+    >
+      Наш pinterest
+    </button>
+
+  </div>
+
+</section>
