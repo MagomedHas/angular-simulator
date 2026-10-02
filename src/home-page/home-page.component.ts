@@ -1,10 +1,10 @@
-import {Component, inject} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {MessageType} from '../enums/Message';
-import {DisplayMessagesService} from '../services/display-messages.service';
-import {ITravel} from '../interfaces/ITravel';
-import {IFeature} from '../interfaces/IFeature';
-import {IDestination} from '../interfaces/IDestination';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MessageType } from '../enums/Message';
+import { DisplayMessagesService } from '../services/display-messages.service';
+import { ITravel } from '../interfaces/ITravel';
+import { IFeature } from '../interfaces/IFeature';
+import { IDestination } from '../interfaces/IDestination';
 
 @Component({
   selector: 'app-home-page',

@@ -1,6 +1,6 @@
-import {Component, input, InputSignal} from '@angular/core';
-import {IPage} from '../interfaces/IPage';
-import {RouterLink, RouterLinkActive} from '@angular/router';
+import { Component, input, InputSignal } from '@angular/core';
+import { IPage } from '../interfaces/IPage';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
