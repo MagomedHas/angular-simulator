@@ -1,0 +1,21 @@
+<div class="messages">
+  @for (msg of messages$ | async; track msg.id) {
+    <ng-container
+      *ngTemplateOutlet="messageTemplate; context: { $implicit: msg }">
+    </ng-container>
+  }
+</div>
+
+<ng-template #messageTemplate let-msg>
+  <div class="message">
+    <button
+      (click)="displayMessagingService.closeMessages(msg.id)"
+      [id]="`close_message_button_${msg.id}`"
+      class="message__button">
+      <img alt="Close message button" ngSrc="/icon/сlose-button_icon.svg" height="20" width="20">
+    </button>
+    <img alt="envelope" class="message__img" ngSrc="/icon/envelope_icon.svg" height="40" width="40"/>
+    <h3 class="message__title">{{ msg.type }}</h3>
+    <p class="message__content">{{ msg.message }}</p>
+  </div>
+</ng-template>
