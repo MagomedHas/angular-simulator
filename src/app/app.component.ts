@@ -6,10 +6,11 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 import {MessagesComponent} from '../messages/messages.component';
+import {LoaderComponent} from '../loader/loader.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent],
+  imports: [FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
