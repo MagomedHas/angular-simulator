@@ -3,6 +3,7 @@ import { UserApiService } from './user-api.service';
 import { BehaviorSubject, catchError, defer, finalize, Observable, of, tap } from 'rxjs';
 import { DisplayMessagesService } from './display-messages.service';
 import { LoaderService } from './loader.service';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,9 @@ export class UserService {
         finalize(() => this.loaderService.hideLoader()),
       );
     });
+  }
+
+  constructor() {
+    this.loadUsers();
   }
 }
