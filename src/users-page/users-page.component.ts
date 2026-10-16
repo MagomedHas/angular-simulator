@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-users-page',
@@ -7,5 +7,5 @@ import {Component} from '@angular/core';
   styleUrl: './users-page.component.scss',
 })
 export class UsersPageComponent {
-
+  private readonly;
 }
