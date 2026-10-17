@@ -9,6 +9,7 @@ import { IUser } from '../interfaces/IUser';
   providedIn: 'root',
 })
 export class UserService {
+
   private readonly userApi: UserApiService = inject(UserApiService);
   private readonly messageService: DisplayMessagesService = inject(DisplayMessagesService);
   private readonly loaderService: LoaderService = inject(LoaderService);
@@ -37,7 +38,4 @@ export class UserService {
     });
   }
 
-  constructor() {
-    this.loadUsers();
-  }
 }
