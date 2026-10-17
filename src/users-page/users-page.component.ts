@@ -11,6 +11,8 @@ import { IUser } from '../interfaces/IUser';
   styleUrl: './users-page.component.scss',
 })
 export class UsersPageComponent {
+
   private userService: UserService = inject(UserService);
   users$: Observable<IUser[]> = this.userService.loadUsers();
+
 }

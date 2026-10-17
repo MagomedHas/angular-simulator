@@ -17,6 +17,7 @@ import { LoaderComponent } from '../loader/loader.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
   readonly loading$ = inject(LoaderService).activity;
 
   companyName: string = 'РУМТИБЕТ';
@@ -59,5 +60,6 @@ export class AppComponent {
     const date: Date = new Date();
     localStorage.setItem('lastLogin', date.toString());
   }
+
 }
 

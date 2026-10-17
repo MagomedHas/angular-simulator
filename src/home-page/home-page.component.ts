@@ -116,4 +116,5 @@ export class HomePageComponent {
       this.participantsInput.length >= 4
     );
   }
+
 }
