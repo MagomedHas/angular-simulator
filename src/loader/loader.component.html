@@ -1,5 +1,5 @@
-@if (loaderSrc.activity | async){
-  <div class="loader">
-   <img src="/icon/loading_icon.png" height="512" width="512"/>
+@if (loaderSrc.activity | async) {
+  <div class="loader" role="status" aria-label="Загрузка">
+    <img src="/icon/loading_icon.png" height="64" width="64" alt="" />
   </div>
 }

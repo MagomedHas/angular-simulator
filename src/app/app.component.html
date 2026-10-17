@@ -1,8 +1,10 @@
-<app-header [companyName]="companyName"></app-header>
 <app-loader></app-loader>
-<app-messages></app-messages>
-<main>
-  <router-outlet></router-outlet>
-</main>
 
-<app-footer></app-footer>
+<div [inert]="(loading$ | async) === true">
+  <app-header [companyName]="companyName"></app-header>
+  <app-messages></app-messages>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+</div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { LoaderService } from '../services/loader.service';
 import './training';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
@@ -10,28 +12,20 @@ import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
+  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  readonly loading$ = inject(LoaderService).activity;
 
   companyName: string = 'РУМТИБЕТ';
-  loaderClass: string = 'display_none';
   clock: string = '';
 
   constructor() {
-    this.loader(2000);
     this.startClock();
     this.setLastLogin();
     this.incrementPageView();
-  }
-
-  loader(timeout: number): void {
-    this.loaderClass = 'loader';
-    setTimeout(() => {
-      this.loaderClass = 'display_none';
-    }, timeout)
   }
 
   startClock(): void {
@@ -66,3 +60,4 @@ export class AppComponent {
     localStorage.setItem('lastLogin', date.toString());
   }
 }
+
