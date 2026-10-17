@@ -1,0 +1,161 @@
+.users {
+  line-height: 30px;
+  padding-top: 200px;
+  padding-bottom: 80px;
+  color: var(--primary-font-color);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-weight: 800;
+    font-size: 48px;
+  }
+
+  &__list {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 70px;
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 440px;
+    min-height: 630px;
+  }
+
+}
+
+.user {
+  padding: 35px 30px 50px;
+  background-color: white;
+  border-top: 4px solid var(--border-color);
+  box-shadow: 0 10px 30px 0 #0000000F;
+
+  display: flex;
+  flex-direction: column;
+
+  &__hgroup {
+    padding-bottom: 20px;
+
+    h2 {
+      font-weight: 800;
+      font-size: 26px;
+
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 17.25px;
+
+      color: var(--contrasting-font-color);
+    }
+  }
+
+  &__chapter {
+    margin-top: 25px;
+  }
+
+  h3 {
+    position: relative;
+    display: block;
+  }
+}
+
+.container {
+  max-width: 1460px;
+}
+
+.chapter {
+  &__title {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      width: auto;
+      overflow-wrap: normal;
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 1.2px;
+
+      text-transform: uppercase;
+    }
+  }
+
+  &__list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    max-height: 20px;
+  }
+
+  &__label {
+    color: var(--grey-font-color);
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__values {
+    max-width: 247px;
+    overflow-wrap: anywhere;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: right;
+
+    &_contrasting {
+      color: var(--contrasting-font-color);
+    }
+
+    &_grey {
+      color: var(--grey-font-color);
+      font-weight: 700;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    &_box {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 17px;
+
+      > span {
+        padding: 1px 6px;
+        border-radius: 3px;
+        border: 1px solid #E2E8F0;
+        background-color: #F4F7F5;
+      }
+    }
+  }
+
+  &:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .chapter__list {
+      flex: 1;
+    }
+
+    .chapter__item:last-child {
+      margin-top: auto;
+    }
+  }
+}
+
