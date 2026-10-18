@@ -12,10 +12,8 @@ export class DisplayMessagesService {
 
   private readonly messagesSubject =
     new BehaviorSubject<IMessage[]>([]);
-
-  private readonly timers = new Map<number, Subscription>();
   readonly messages$ = this.messagesSubject.asObservable();
-
+  private readonly timers = new Map<number, Subscription>();
   private nextId: number = 1;
   closeMessages(): void {
     this.messagesSubject.next([])
@@ -51,7 +49,7 @@ export class DisplayMessagesService {
   private addMessage(message: string, type: MessageType): void {
     const id: number = this.nextId;
     this.messagesSubject.next(
-      [ ...this.messagesSubject.getValue() ,{
+      [ ...this.messagesSubject.value,{
         id: id,
         type: type,
         message: message

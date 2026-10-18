@@ -1,7 +1,7 @@
-import {Component, inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LoaderService } from '../services/loader.service';
 import { Observable } from 'rxjs';
-import {AsyncPipe} from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-loader',
@@ -13,7 +13,7 @@ import {AsyncPipe} from '@angular/common';
 })
 export class LoaderComponent {
 
-  public loaderSrc: LoaderService = inject(LoaderService)
+  private loaderSrc: LoaderService = inject(LoaderService)
   activity:  Observable<boolean> = this.loaderSrc.activity
 
 }

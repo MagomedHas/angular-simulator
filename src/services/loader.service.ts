@@ -1,18 +1,18 @@
 import { DOCUMENT } from '@angular/common';
-import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoaderService {
 
-  private readonly document = inject(DOCUMENT);
-  private readonly loadingSubject = new BehaviorSubject(false);
+  private readonly document: any = Inject(DOCUMENT);
+  private readonly loadingSubject:  BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  readonly activity = this.loadingSubject.asObservable();
+  readonly activity: Observable<boolean> = this.loadingSubject.asObservable();
 
-  private previousOverflow = '';
+  private previousOverflow: string = '';
 
   showLoader(): void {
     if (this.loadingSubject.value) return;
@@ -28,5 +28,5 @@ export class LoaderService {
     this.document.body.style.overflow = this.previousOverflow;
     this.loadingSubject.next(false);
   }
-  
+
 }

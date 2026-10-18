@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
@@ -8,7 +8,7 @@ import { IUser } from '../interfaces/IUser';
 })
 export class UserApiService {
 
-  private readonly http: HttpClient = inject(HttpClient);
+  private readonly http: HttpClient = Inject(HttpClient);
   private readonly api: string = 'https://jsonplaceholder.typicode.com/users';
 
   getUsers(): Observable<IUser[]> {
