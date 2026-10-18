@@ -17,6 +17,7 @@
 
   &__list {
     margin-top: 80px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 50px 70px;
@@ -28,8 +29,26 @@
     min-height: 630px;
   }
 
+  &__item-no {
+    max-width: 558px;
+    height: 105px;
+  }
 }
 
+.no-users {
+  border-radius: 20px;
+  background-color: #B15757;
+  padding: 35px;
+
+  > h2 {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: white;
+  }
+
+}
 .user {
   padding: 35px 30px 50px;
   background-color: white;
