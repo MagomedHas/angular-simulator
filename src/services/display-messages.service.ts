@@ -49,11 +49,13 @@ export class DisplayMessagesService {
   private addMessage(message: string, type: MessageType): void {
     const id: number = this.nextId;
     this.messagesSubject.next(
-      [ ...this.messagesSubject.value,{
+      [ ...this.messagesSubject.value,
+        {
         id: id,
         type: type,
         message: message
-      }]
+        }
+      ]
     )
 
     const subscription: Subscription = timer(this.windowTime).subscribe(() => {
