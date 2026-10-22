@@ -6,6 +6,7 @@ let uploadStatus: 'loading' | 'success' | 'error';
 let textFormat: 'uppercase' | 'lowercase' | 'capitalize';
 
 interface IUser {
+  id: any;
   name: string;
   surname: string;
   age: number;
@@ -31,41 +32,46 @@ function deleteChar(str: string, char: string): string {
 
 const users: IUser[] = [
   {
-    name: "Иван",
-    surname: "Петров",
+    id: 0,
+    name: 'Иван',
+    surname: 'Петров',
     age: 25,
     password: 'fg4rerwerdswfrtelp',
-    email: "ivan.petrov@example.com"
+    email: 'ivan.petrov@example.com',
   },
   {
-    name: "Мария",
-    surname: "Иванова",
+    id: 1,
+    name: 'Мария',
+    surname: 'Иванова',
     age: 30,
     password: 'sijsaepwwruoidfdjsid',
-    email: "maria.ivanova@example.com"
+    email: 'maria.ivanova@example.com',
   },
   {
-    name: "Алексей",
-    surname: "Сидоров",
+    id: 2,
+    name: 'Алексей',
+    surname: 'Сидоров',
     age: 22,
     password: 'diksdsoijhfgeehifjf',
-    email: "alexey.sidorov@example.com"
+    email: 'alexey.sidorov@example.com',
   },
   {
-    name: "Екатерина",
-    surname: "Кузнецова",
+    id: 3,
+    name: 'Екатерина',
+    surname: 'Кузнецова',
     password: 'wpirfvgo[jugr[ojgb',
     age: 28,
-    email: "ekaterina.kuznetsova@example.com"
+    email: 'ekaterina.kuznetsova@example.com',
   },
   {
-    name: "Дмитрий",
-    surname: "Смирнов",
+    id: 4,
+    name: 'Дмитрий',
+    surname: 'Смирнов',
     password: 'edorfjgujifescdo',
     age: 35,
-    email: "dmitry.smirnov@example.com"
-  }
-]
+    email: 'dmitry.smirnov@example.com',
+  },
+];
 
 users.sort((a, b) => a.age - b.age);
 console.log(users);

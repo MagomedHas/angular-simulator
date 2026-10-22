@@ -1,41 +1,32 @@
 import { Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { LoaderService } from '../services/loader.service';
 import './training';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
-import { NgTemplateOutlet } from '@angular/common';
-import { DisplayMessagesService } from '../services/display-messages.service';
-import { MessageType } from '../enums/Message';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterOutlet } from '@angular/router';
+import {MessagesComponent} from '../messages/messages.component';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, NgTemplateOutlet, HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
 
-  displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
-  MessageType: typeof MessageType = MessageType;
+  readonly loading$ = inject(LoaderService).activity;
 
   companyName: string = 'РУМТИБЕТ';
-  loaderClass: string = 'display_none';
   clock: string = '';
 
   constructor() {
-    this.loader(2000);
     this.startClock();
     this.setLastLogin();
     this.incrementPageView();
-  }
-
-  loader(timeout: number): void {
-    this.loaderClass = 'loader';
-    setTimeout(() => {
-      this.loaderClass = 'display_none';
-    }, timeout)
   }
 
   startClock(): void {
@@ -71,3 +62,4 @@ export class AppComponent {
   }
 
 }
+
