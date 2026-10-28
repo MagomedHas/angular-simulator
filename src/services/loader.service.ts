@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class LoaderService {
 
-  private readonly document: any = Inject(DOCUMENT);
+  private readonly document: any = inject(DOCUMENT);
   private readonly loadingSubject:  BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   readonly activity: Observable<boolean> = this.loadingSubject.asObservable();
