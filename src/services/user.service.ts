@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UserApiService } from './user-api.service';
 import { BehaviorSubject, catchError, defer, finalize, Observable, of, tap } from 'rxjs';
 import { DisplayMessagesService } from './display-messages.service';
@@ -10,9 +10,9 @@ import { IUser } from '../interfaces/IUser';
 })
 export class UserService {
 
-  private readonly userApi: UserApiService = Inject(UserApiService);
-  private readonly messageService: DisplayMessagesService = Inject(DisplayMessagesService);
-  private readonly loaderService: LoaderService = Inject(LoaderService);
+  private readonly userApi: UserApiService = inject(UserApiService);
+  private readonly messageService: DisplayMessagesService = inject(DisplayMessagesService);
+  private readonly loaderService: LoaderService = inject(LoaderService);
   private readonly usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
 
   setUsers(users: IUser[]) {
