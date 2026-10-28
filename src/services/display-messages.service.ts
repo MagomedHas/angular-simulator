@@ -28,7 +28,6 @@ export class DisplayMessagesService {
   showError(message: string): void {
     this.addMessage(message, MessageType.ERROR);
   }
-
   showSuccess(message: string): void {
     this.addMessage(message, MessageType.SUCCESS);
   }
@@ -50,6 +49,7 @@ export class DisplayMessagesService {
     const id: number = this.nextId;
     this.messagesSubject.next(
       [ ...this.messagesSubject.value,
+
         {
         id: id,
         type: type,
