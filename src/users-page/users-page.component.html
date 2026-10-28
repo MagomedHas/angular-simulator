@@ -1,1 +1,117 @@
-<p>users-page works!</p>
+<section class="users main-background-color alt">
+  <div class="users__inner container">
+    <h1>Список Пользователей</h1>
+    <ul class="users__list">
+      @if (users$ | async; as users) {
+        @for (user of users; track user.id) {
+          <li class="users__item user">
+            <hgroup class="user__hgroup">
+              <h2>{{ user.name }}</h2>
+              <p>{{ user.username }}</p>
+            </hgroup>
+            <section class="user__chapter chapter">
+
+              <div class="chapter__title">
+                <h3>Контакты</h3>
+                <div class="h-stripe"></div>
+              </div>
+              <ul class="chapter__list">
+                <li class="chapter__item">
+                  <span class="chapter__label">Эл. почта:</span>
+                  <div class="chapter__values chapter__values_contrasting">
+                    <span>{{ user.email }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Телефон:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.phone }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Веб-сайт:</span>
+                  <div class="chapter__values chapter__values_contrasting">
+                    <span>{{ user.website }}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section class="user__chapter chapter">
+
+              <div class="chapter__title">
+                <h3>Адрес Проживания</h3>
+                <div class="h-stripe"></div>
+              </div>
+              <ul class="chapter__list">
+                <li class="chapter__item">
+                  <span class="chapter__label">Город:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.address.city }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Улица:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.address.street }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Офис:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.address.suite }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Индекс:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.address.zipcode }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Координаты:</span>
+                  <div class="chapter__values chapter__values_box">
+                    <span>{{ user.address.geo.lat }}</span>
+                    <span>{{ user.address.geo.lng }}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <section class="user__chapter chapter">
+
+              <div class="chapter__title">
+                <h3>Место работы</h3>
+                <div class="h-stripe"></div>
+              </div>
+              <ul class="chapter__list">
+                <li class="chapter__item">
+                  <span class="chapter__label">Компания:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.company.name }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Миссия:</span>
+                  <div class="chapter__values chapter__values_grey">
+                    <span>{{ user.company.catchPhrase }}</span>
+                  </div>
+                </li>
+                <li class="chapter__item">
+                  <span class="chapter__label">Специализация:</span>
+                  <div class="chapter__values">
+                    <span>{{ user.company.bs }}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </li>
+        } @empty {
+          <li class="users__item-no no-users">
+            <h2>Нет пользователей для отображения</h2>
+          </li>
+        }
+      }
+    </ul>
+
+  </div>
+</section>

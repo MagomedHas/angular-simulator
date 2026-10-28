@@ -1,4 +1,5 @@
 class Collection<T> {
+
   private items: T[];
 
   constructor(items: T[] = []) {
@@ -28,7 +29,5 @@ class Collection<T> {
   replace(item: T, replacement: T) {
     this.items.splice(this.items.indexOf(item), 1, replacement);
   }
-}
 
-const nameCollection: Collection<string> = new Collection();
-const numberCollection: Collection<number> = new Collection();
+}
