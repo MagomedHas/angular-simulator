@@ -1,0 +1,270 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" aria-labelledby="create-user-title" class="user-create">
+  <header class="user-create__hgroup">
+    <h2 id="create-user-title">Новый пользователь</h2>
+    <p>Заполните данные для создания карточки</p>
+  </header>
+  <p class="user-create__hint">Поля со звёздочкой (*) обязательны для заполнения.</p>
+
+  <fieldset class="user-create__chapter chapter">
+    <legend class="chapter__title">Основные данные</legend>
+    <div class="chapter__fields">
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-name">
+          Имя
+          <span aria-hidden="true" class="chapter__required">*</span>
+        </label>
+        <input
+          autocomplete="name"
+          class="chapter__input"
+          formControlName="name"
+          id="create-user-name"
+          type="text">
+        @if (form.get('name')?.touched && form.get('name')?.invalid) {
+          <p class="chapter__error" id="create-user-name-error">
+            Введите имя длиной от 2 до 100 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-username">
+          Имя пользователя
+          <span aria-hidden="true" class="chapter__required">*</span>
+        </label>
+        <input
+          autocomplete="username"
+          class="chapter__input"
+          formControlName="username"
+          id="create-user-username"
+          type="text">
+        @if (form.get('username')?.touched && form.get('username')?.invalid) {
+          <p class="chapter__error" id="create-user-username-error">
+            Введите имя пользователя длиной от 3 до 30 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-email">
+          Эл. почта
+          <span aria-hidden="true" class="chapter__required">*</span>
+        </label>
+        <input
+          autocomplete="email"
+          class="chapter__input"
+          formControlName="email"
+          id="create-user-email"
+          type="email">
+        @if (form.get('email')?.touched && form.get('email')?.invalid) {
+          <p class="chapter__error" id="create-user-email-error">
+            Введите корректный email длиной не более 100 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-phone">
+          Телефон
+          <span aria-hidden="true" class="chapter__required">*</span>
+        </label>
+        <input
+          autocomplete="tel"
+          class="chapter__input"
+          formControlName="phone"
+          id="create-user-phone"
+          type="tel">
+        @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+          <p class="chapter__error" id="create-user-phone-error">
+            Введите телефон длиной от 10 до 25 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-website">
+          Веб-сайт
+        </label>
+        <input
+          autocomplete="url"
+          class="chapter__input"
+          formControlName="website"
+          id="create-user-website"
+          type="text">
+        @if (form.get('website')?.touched && form.get('website')?.invalid) {
+          <p class="chapter__error" id="create-user-website-error">
+            Веб-сайт должен содержать не более 100 символов.
+          </p>
+        }
+      </div>
+    </div>
+  </fieldset>
+
+  <ng-container formGroupName="address">
+    <fieldset class="user-create__chapter chapter">
+      <legend class="chapter__title">Адрес проживания</legend>
+      <div class="chapter__fields">
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-city">
+            Город
+            <span aria-hidden="true" class="chapter__required">*</span>
+          </label>
+          <input
+            autocomplete="address-level2"
+            class="chapter__input"
+            formControlName="city"
+            id="create-user-city"
+            type="text">
+          @if (form.get('address.city')?.touched && form.get('address.city')?.invalid) {
+            <p class="chapter__error" id="create-user-city-error">
+              Введите город длиной не более 50 символов.
+            </p>
+          }
+        </div>
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-street">
+            Улица
+            <span aria-hidden="true" class="chapter__required">*</span>
+          </label>
+          <input
+            autocomplete="address-line1"
+            class="chapter__input"
+            formControlName="street"
+            id="create-user-street"
+            type="text">
+          @if (form.get('address.street')?.touched && form.get('address.street')?.invalid) {
+            <p class="chapter__error" id="create-user-street-error">
+              Введите улицу длиной не более 100 символов.
+            </p>
+          }
+        </div>
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-suite">
+            Квартира / офис
+          </label>
+          <input
+            autocomplete="address-line2"
+            class="chapter__input"
+            formControlName="suite"
+            id="create-user-suite"
+            type="text">
+          @if (form.get('address.suite')?.touched && form.get('address.suite')?.invalid) {
+            <p class="chapter__error" id="create-user-suite-error">
+              Квартира / офис: не более 50 символов.
+            </p>
+          }
+        </div>
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-zipcode">
+            Индекс
+            <span aria-hidden="true" class="chapter__required">*</span>
+          </label>
+          <input
+            autocomplete="postal-code"
+            class="chapter__input"
+            formControlName="zipcode"
+            id="create-user-zipcode"
+            type="text">
+          @if (form.get('address.zipcode')?.touched && form.get('address.zipcode')?.invalid) {
+            <p class="chapter__error" id="create-user-zipcode-error">
+              Введите индекс длиной от 5 до 10 символов.
+            </p>
+          }
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="user-create__chapter chapter" formGroupName="geo">
+      <legend class="chapter__title">Координаты</legend>
+      <div class="chapter__fields">
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-lat">
+            Широта
+            <span aria-hidden="true" class="chapter__required">*</span>
+          </label>
+          <input
+            class="chapter__input"
+            formControlName="lat"
+            id="create-user-lat"
+            type="text">
+          @if (form.get('address.geo.lat')?.touched && form.get('address.geo.lat')?.invalid) {
+            <p class="chapter__error" id="create-user-lat-error">
+              Введите широту.
+            </p>
+          }
+        </div>
+        <div class="chapter__field">
+          <label class="chapter__label" for="create-user-lng">
+            Долгота
+            <span aria-hidden="true" class="chapter__required">*</span>
+          </label>
+          <input
+            class="chapter__input"
+            formControlName="lng"
+            id="create-user-lng"
+            type="text">
+          @if (form.get('address.geo.lng')?.touched && form.get('address.geo.lng')?.invalid) {
+            <p class="chapter__error" id="create-user-lng-error">
+              Введите долготу.
+            </p>
+          }
+        </div>
+      </div>
+    </fieldset>
+  </ng-container>
+
+  <fieldset class="user-create__chapter chapter" formGroupName="company">
+    <legend class="chapter__title">Место работы</legend>
+    <div class="chapter__fields">
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-company-name">
+          Компания
+          <span aria-hidden="true" class="chapter__required">*</span>
+        </label>
+        <input
+          autocomplete="organization"
+          class="chapter__input"
+          formControlName="name"
+          id="create-user-company-name"
+          type="text">
+        @if (form.get('company.name')?.touched && form.get('company.name')?.invalid) {
+          <p class="chapter__error" id="create-user-company-name-error">
+            Введите название компании длиной не более 50 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-catch-phrase">
+          Миссия
+        </label>
+        <input
+          class="chapter__input"
+          formControlName="catchPhrase"
+          id="create-user-catch-phrase"
+          type="text">
+        @if (form.get('company.catchPhrase')?.touched && form.get('company.catchPhrase')?.invalid) {
+          <p class="chapter__error" id="create-user-catch-phrase-error">
+            Миссия должна содержать не более 200 символов.
+          </p>
+        }
+      </div>
+      <div class="chapter__field">
+        <label class="chapter__label" for="create-user-bs">
+          Специализация
+        </label>
+        <input
+          class="chapter__input"
+          formControlName="bs"
+          id="create-user-bs"
+          type="text">
+        @if (form.get('company.bs')?.touched && form.get('company.bs')?.invalid) {
+          <p class="chapter__error" id="create-user-bs-error">
+            Специализация должна содержать не более 100 символов.
+          </p>
+        }
+      </div>
+    </div>
+  </fieldset>
+
+  <button
+    class="user-create__button"
+    id="create-user-submit"
+    type="submit">
+    Создать пользователя
+  </button>
+</form>

@@ -28,6 +28,10 @@ export class UserService {
     return this.usersSubject.asObservable();
   }
 
+  createUser(user: IUser): void {
+    this.usersSubject.next([user, ...this.usersSubject.value]);
+  }
+
   loadUsers(): Observable<IUser[]> {
     return defer((): Observable<IUser[]> => {
       this.loaderService.showLoader();

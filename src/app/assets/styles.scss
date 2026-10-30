@@ -22,6 +22,11 @@ a {
   cursor: pointer;
 }
 
+.two_lines {
+  grid-row: span 2;
+}
+
+
 .frame_with_img > img {
 
 

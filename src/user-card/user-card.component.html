@@ -26,7 +26,7 @@
       <li class="chapter__item">
         <span class="chapter__label">Веб-сайт:</span>
         <div class="chapter__values chapter__values_contrasting">
-          <span>{{ user.website }}</span>
+          <span>{{ user.website || 'Неизвестно' }}</span>
         </div>
       </li>
     </ul>
@@ -54,7 +54,7 @@
       <li class="chapter__item">
         <span class="chapter__label">Офис:</span>
         <div class="chapter__values">
-          <span>{{ user.address.suite }}</span>
+          <span>{{ user.address.suite || 'Неизвестно' }}</span>
         </div>
       </li>
       <li class="chapter__item">
@@ -88,18 +88,18 @@
       <li class="chapter__item">
         <span class="chapter__label">Миссия:</span>
         <div class="chapter__values chapter__values_grey">
-          <span>{{ user.company.catchPhrase }}</span>
+          <span>{{ user.company.catchPhrase || 'Неизвестно' }}</span>
         </div>
       </li>
       <li class="chapter__item">
         <span class="chapter__label">Специализация:</span>
         <div class="chapter__values">
-          <span>{{ user.company.bs }}</span>
+          <span>{{ user.company.bs || 'Неизвестно' }}</span>
         </div>
       </li>
     </ul>
   </section>
-  <button (click)="deleteUser.emit(user.id)" class="user__button">
+  <button (click)="deleteUser.emit(user.id)" [id]="'delete-user-' + user.id" class="user__button">
     Удалить пользователя
   </button>
 </section>

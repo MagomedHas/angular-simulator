@@ -18,8 +18,8 @@
   &__list {
     margin-top: 80px;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(440px, 1fr));
     gap: 50px 70px;
   }
 
