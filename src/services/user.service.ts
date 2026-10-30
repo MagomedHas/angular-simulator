@@ -15,8 +15,13 @@ export class UserService {
   private readonly loaderService: LoaderService = inject(LoaderService);
   private readonly usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
 
+
   setUsers(users: IUser[]) {
     this.usersSubject.next(users);
+  }
+
+  deleteUser(id: number) {
+    this.usersSubject.next(this.usersSubject.value.filter(user => user.id !== id));
   }
 
   getUsers(): Observable<IUser[]> {
@@ -37,5 +42,4 @@ export class UserService {
       );
     });
   }
-
 }
