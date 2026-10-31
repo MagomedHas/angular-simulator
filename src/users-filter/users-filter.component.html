@@ -1,0 +1,14 @@
+<section class="users-filter">
+  <h2 class="users-filter__title">Поиск пользователей</h2>
+  <div class="users-filter__field">
+    <label class="users-filter__label" for="users-filter-name">
+      Имя пользователя
+    </label>
+    <input
+      [formControl]="filterControl"
+      class="users-filter__input"
+      id="users-filter-name"
+      placeholder="Введите имя"
+      type="search">
+  </div>
+</section>

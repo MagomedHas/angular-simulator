@@ -2,10 +2,13 @@
   <div class="users__inner container">
     <h1>Список Пользователей</h1>
     <ul class="users__list">
-      <li class="users__item two_lines">
-        <app-user-create (createUser)="createUser($event)"></app-user-create>
+      <li class="all_columns">
+        <app-users-filter (filterChange)="filter$.next($event)" />
       </li>
-      @if (users$ | async; as users) {
+      <li class="users__item two_lines">
+        <app-user-create (createUser)="createUser($event)"/>
+      </li>
+      @if (filteredUsers$ | async; as users) {
         @for (user of users; track user.id) {
           <li class="users__item">
             <app-user-card (deleteUser)="deleteUser($event)" [user]="user"/>
