@@ -11,4 +11,5 @@ export class UserCardComponent {
 
   @Input({required: true}) user!: IUser;
   @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
+  
 }
