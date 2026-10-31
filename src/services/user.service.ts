@@ -18,7 +18,6 @@ export class UserService {
   private readonly storageService: StorageService = inject(StorageService);
 
   constructor() {
-
     this.usersSubject
       .pipe(skip(1))
       .subscribe((users: IUser[]) => this.storageService.set<IUser[]>('users', users));
