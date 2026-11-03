@@ -1,6 +1,23 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { IUser } from '../interfaces/IUser';
+
+type UserWithoutId = Omit<IUser, 'id'>;
+
+type ControlsOf<T> = {
+  [K in keyof T]: T[K] extends object
+    ? FormGroup<ControlsOf<T[K]>>
+    : FormControl<T[K] >;
+};
+
+type UserFormGroup = FormGroup<ControlsOf<UserWithoutId>>;
 
 @Component({
   selector: 'app-user-create',
@@ -13,9 +30,10 @@ import { IUser } from '../interfaces/IUser';
 export class UserCreateComponent {
 
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
-  private fb: FormBuilder = inject(FormBuilder);
+  private fb: NonNullableFormBuilder = inject(FormBuilder).nonNullable;
 
-  form: FormGroup = this.fb.group({
+
+  userForm: UserFormGroup = this.fb.group({
     name: ['', [
       Validators.required,
       Validators.minLength(2),
@@ -67,16 +85,16 @@ export class UserCreateComponent {
   })
 
   onSubmit(): void {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched();
       return;
     }
     const user: IUser = {
-      ...this.form.value,
       id: Date.now(),
+      ...this.userForm.getRawValue(),
     };
     this.createUser.emit(user)
-    this.form.reset();
+    this.userForm.reset();
   }
 
 }

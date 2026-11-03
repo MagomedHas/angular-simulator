@@ -42,10 +42,10 @@ export class UserService {
   loadUsers(): Observable<IUser[]> {
     return defer((): Observable<IUser[]> => {
 
-      const Users: IUser[] | null = this.storageService.get<IUser[]>('users')
-      if (Users !== null) {
-        this.setUsers(Users);
-        return of(Users);
+      const users: IUser[] | null = this.storageService.get<IUser[]>('users')
+      if (users !== null) {
+        this.setUsers(users);
+        return of(users);
       }
       this.loaderService.showLoader();
       return this.userApi.getUsers().pipe(
