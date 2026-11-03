@@ -30,8 +30,6 @@ export class UserCreateComponent {
 
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   private fb: NonNullableFormBuilder = inject(FormBuilder).nonNullable;
-
-
   userForm: UserFormGroup = this.fb.group({
     id: Date.now(),
     name: ['', [
