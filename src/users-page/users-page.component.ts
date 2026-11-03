@@ -16,7 +16,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class UsersPageComponent {
 
-  private readonly dr: DestroyRef = inject(DestroyRef);
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
   filter$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private userService: UserService = inject(UserService);
   users$: Observable<IUser[]> = this.userService.getUsers();
@@ -33,7 +33,7 @@ export class UsersPageComponent {
 
   ngOnInit(): void {
     this.userService.loadUsers().pipe(
-      takeUntilDestroyed(this.dr)
+      takeUntilDestroyed(this.destroyRef)
     ).subscribe()
   }
 
