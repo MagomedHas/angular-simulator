@@ -9,7 +9,6 @@ import {
 } from '@angular/forms';
 import { IUser } from '../interfaces/IUser';
 
-type UserWithoutId = Omit<IUser, 'id'>;
 
 type ControlsOf<T> = {
   [K in keyof T]: T[K] extends object
@@ -17,7 +16,7 @@ type ControlsOf<T> = {
     : FormControl<T[K] >;
 };
 
-type UserFormGroup = FormGroup<ControlsOf<UserWithoutId>>;
+type UserFormGroup = FormGroup<ControlsOf<IUser>>;
 
 @Component({
   selector: 'app-user-create',
@@ -34,6 +33,7 @@ export class UserCreateComponent {
 
 
   userForm: UserFormGroup = this.fb.group({
+    id: Date.now(),
     name: ['', [
       Validators.required,
       Validators.minLength(2),
@@ -90,8 +90,7 @@ export class UserCreateComponent {
       return;
     }
     const user: IUser = {
-      id: Date.now(),
-      ...this.userForm.getRawValue(),
+      ...this.userForm.getRawValue()
     };
     this.createUser.emit(user)
     this.userForm.reset();

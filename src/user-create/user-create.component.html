@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form" aria-labelledby="create-user-title" class="user-create">
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm" aria-labelledby="create-user-title" class="user-create">
   <header class="user-create__hgroup">
     <h2 id="create-user-title">Новый пользователь</h2>
     <p>Заполните данные для создания карточки</p>
@@ -19,7 +19,7 @@
           formControlName="name"
           id="create-user-name"
           type="text">
-        @if (form.get('name')?.touched && form.get('name')?.invalid) {
+        @if (userForm.get('name')?.touched && userForm.get('name')?.invalid) {
           <p class="chapter__error" id="create-user-name-error">
             Введите имя длиной от 2 до 100 символов.
           </p>
@@ -36,7 +36,7 @@
           formControlName="username"
           id="create-user-username"
           type="text">
-        @if (form.get('username')?.touched && form.get('username')?.invalid) {
+        @if (userForm.get('username')?.touched && userForm.get('username')?.invalid) {
           <p class="chapter__error" id="create-user-username-error">
             Введите имя пользователя длиной от 3 до 30 символов.
           </p>
@@ -53,7 +53,7 @@
           formControlName="email"
           id="create-user-email"
           type="email">
-        @if (form.get('email')?.touched && form.get('email')?.invalid) {
+        @if (userForm.get('email')?.touched && userForm.get('email')?.invalid) {
           <p class="chapter__error" id="create-user-email-error">
             Введите корректный email длиной не более 100 символов.
           </p>
@@ -70,7 +70,7 @@
           formControlName="phone"
           id="create-user-phone"
           type="tel">
-        @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+        @if (userForm.get('phone')?.touched && userForm.get('phone')?.invalid) {
           <p class="chapter__error" id="create-user-phone-error">
             Введите телефон длиной от 10 до 25 символов.
           </p>
@@ -86,7 +86,7 @@
           formControlName="website"
           id="create-user-website"
           type="text">
-        @if (form.get('website')?.touched && form.get('website')?.invalid) {
+        @if (userForm.get('website')?.touched && userForm.get('website')?.invalid) {
           <p class="chapter__error" id="create-user-website-error">
             Веб-сайт должен содержать не более 100 символов.
           </p>
@@ -110,7 +110,7 @@
             formControlName="city"
             id="create-user-city"
             type="text">
-          @if (form.get('address.city')?.touched && form.get('address.city')?.invalid) {
+          @if (userForm.get('address.city')?.touched && userForm.get('address.city')?.invalid) {
             <p class="chapter__error" id="create-user-city-error">
               Введите город длиной не более 50 символов.
             </p>
@@ -127,7 +127,7 @@
             formControlName="street"
             id="create-user-street"
             type="text">
-          @if (form.get('address.street')?.touched && form.get('address.street')?.invalid) {
+          @if (userForm.get('address.street')?.touched && userForm.get('address.street')?.invalid) {
             <p class="chapter__error" id="create-user-street-error">
               Введите улицу длиной не более 100 символов.
             </p>
@@ -143,7 +143,7 @@
             formControlName="suite"
             id="create-user-suite"
             type="text">
-          @if (form.get('address.suite')?.touched && form.get('address.suite')?.invalid) {
+          @if (userForm.get('address.suite')?.touched && userForm.get('address.suite')?.invalid) {
             <p class="chapter__error" id="create-user-suite-error">
               Квартира / офис: не более 50 символов.
             </p>
@@ -160,7 +160,7 @@
             formControlName="zipcode"
             id="create-user-zipcode"
             type="text">
-          @if (form.get('address.zipcode')?.touched && form.get('address.zipcode')?.invalid) {
+          @if (userForm.get('address.zipcode')?.touched && userForm.get('address.zipcode')?.invalid) {
             <p class="chapter__error" id="create-user-zipcode-error">
               Введите индекс длиной от 5 до 10 символов.
             </p>
@@ -182,7 +182,7 @@
             formControlName="lat"
             id="create-user-lat"
             type="text">
-          @if (form.get('address.geo.lat')?.touched && form.get('address.geo.lat')?.invalid) {
+          @if (userForm.get('address.geo.lat')?.touched && userForm.get('address.geo.lat')?.invalid) {
             <p class="chapter__error" id="create-user-lat-error">
               Введите широту.
             </p>
@@ -198,7 +198,7 @@
             formControlName="lng"
             id="create-user-lng"
             type="text">
-          @if (form.get('address.geo.lng')?.touched && form.get('address.geo.lng')?.invalid) {
+          @if (userForm.get('address.geo.lng')?.touched && userForm.get('address.geo.lng')?.invalid) {
             <p class="chapter__error" id="create-user-lng-error">
               Введите долготу.
             </p>
@@ -222,13 +222,13 @@
           formControlName="name"
           id="create-user-company-name"
           type="text">
-        @if (form.get('company.name')?.touched && form.get('company.name')?.invalid) {
+        @if (userForm.get('company.name')?.touched && userForm.get('company.name')?.invalid) {
           <p class="chapter__error" id="create-user-company-name-error">
             Введите название компании длиной не более 50 символов.
           </p>
         }
       </div>
-      <div class="chapter__field">
+      <div class="chapter__field">У
         <label class="chapter__label" for="create-user-catch-phrase">
           Миссия
         </label>
@@ -237,7 +237,7 @@
           formControlName="catchPhrase"
           id="create-user-catch-phrase"
           type="text">
-        @if (form.get('company.catchPhrase')?.touched && form.get('company.catchPhrase')?.invalid) {
+        @if (userForm.get('company.catchPhrase')?.touched && userForm.get('company.catchPhrase')?.invalid) {
           <p class="chapter__error" id="create-user-catch-phrase-error">
             Миссия должна содержать не более 200 символов.
           </p>
@@ -252,7 +252,7 @@
           formControlName="bs"
           id="create-user-bs"
           type="text">
-        @if (form.get('company.bs')?.touched && form.get('company.bs')?.invalid) {
+        @if (userForm.get('company.bs')?.touched && userForm.get('company.bs')?.invalid) {
           <p class="chapter__error" id="create-user-bs-error">
             Специализация должна содержать не более 100 символов.
           </p>
