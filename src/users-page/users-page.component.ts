@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -6,6 +6,7 @@ import { IUser } from '../interfaces/IUser';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { UserCreateComponent } from '../user-create/user-create.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-users-page',
@@ -15,6 +16,7 @@ import { UsersFilterComponent } from '../users-filter/users-filter.component';
 })
 export class UsersPageComponent {
 
+  private readonly dr: DestroyRef = inject(DestroyRef);
   filter$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private userService: UserService = inject(UserService);
   users$: Observable<IUser[]> = this.userService.getUsers();
@@ -30,7 +32,9 @@ export class UsersPageComponent {
   );
 
   ngOnInit(): void {
-    this.userService.loadUsers().subscribe()
+    this.userService.loadUsers().pipe(
+      takeUntilDestroyed(this.dr)
+    ).subscribe()
   }
 
   deleteUser(id: number): void {
