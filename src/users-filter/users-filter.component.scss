@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+
+.users-filter {
+  padding: 35px 30px;
+  background-color: white;
+  border-top: 4px solid var(--border-color);
+  box-shadow: 0 10px 30px 0 #0000000F;
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: 800;
+    font-size: 26px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__label {
+    color: var(--grey-font-color);
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    background-color: #F4F7F5;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+
+    &::placeholder {
+      color: var(--grey-font-color);
+    }
+
+    &:focus {
+      border-color: var(--contrasting-font-color);
+      outline: 2px solid var(--contrasting-font-color);
+      outline-offset: 2px;
+      background-color: white;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .users-filter {
+    padding: 25px 20px;
+  }
+}

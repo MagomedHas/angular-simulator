@@ -22,6 +22,15 @@ a {
   cursor: pointer;
 }
 
+.two_lines {
+  grid-row: span 2;
+}
+
+.all_columns {
+  grid-column: 1 / -1;
+}
+
+
 .frame_with_img > img {
 
 

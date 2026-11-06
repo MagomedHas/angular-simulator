@@ -24,6 +24,13 @@ export class HomePageComponent {
   liveInput: string = '';
   liveOutput: string = 'Введенный текст';
 
+  flowerVisual: string[] = [
+    'Tea_by_the_lake',
+    'mountain_river',
+    'snowmobile',
+    'mountain_river_mouth'
+  ]
+
   travels: ITravel[] = [
     {
       id: 1,
