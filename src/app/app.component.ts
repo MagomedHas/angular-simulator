@@ -7,12 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterOutlet } from '@angular/router';
-import {MessagesComponent} from '../messages/messages.component';
+import { MessagesComponent } from '../messages/messages.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { BadgeDirective } from 'primeng/badge';
 
 @Component({
   selector: 'app-root',
-  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
+  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent, BadgeDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

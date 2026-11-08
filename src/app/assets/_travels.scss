@@ -1,6 +1,7 @@
 .travels {
   align-items: center;
 
+  color: var(--);
   &__inner {
     justify-content: space-between;
     display: flex;
@@ -11,6 +12,8 @@
   }
 
   &__list {
+
+    color: var(--primary-font-color);
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
