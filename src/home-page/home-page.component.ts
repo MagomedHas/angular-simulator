@@ -5,17 +5,23 @@ import { DisplayMessagesService } from '../services/display-messages.service';
 import { ITravel } from '../interfaces/ITravel';
 import { IFeature } from '../interfaces/IFeature';
 import { IDestination } from '../interfaces/IDestination';
+import { FaIconComponent, IconDefinition } from '@fortawesome/angular-fontawesome';
+import { faAngleDown, faAngleRight, faCirclePlay, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-home-page',
-  imports: [
-    FormsModule
-  ],
+  imports: [FormsModule, FaIconComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
 
+  faCirclePlay: IconDefinition = faCirclePlay;
+  faAngleDown: IconDefinition = faAngleDown;
+  faAngleRight: IconDefinition = faAngleRight;
+  faCalendar: IconDefinition = faCalendar;
+  faStar: IconDefinition = faStar;
   displayMessagingService: DisplayMessagesService = inject(DisplayMessagesService);
   DOLLAR_SIGN: string = '\u0024';
   tourInput: string = '';

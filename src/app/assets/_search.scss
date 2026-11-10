@@ -64,9 +64,6 @@
     line-height: 150%;
   }
 
-  select {
-    background-image: url("/icon/arrow-select_icon.svg");
-  }
 
   .hike_date::-webkit-calendar-picker-indicator {
     opacity: 0;
@@ -81,7 +78,7 @@
   .hike_date {
     color: transparent;
     border-color: var(--inverted-font-color);
-    background-image: url("/icon/calendar_icon.svg");
+    //background-image: url("/icon/calendar_icon.svg");
   }
 
   .hike_date:focus,
@@ -122,12 +119,16 @@
     flex-direction: row;
     align-items: center;
 
-    img {
-      width: auto;
-      height: auto;
-      transform: rotate(-90deg);
+    fa-icon {
+      font-size: 15px;
       position: absolute;
       right: 16px;
+    }
+  }
+
+  .input-box_calendar {
+    fa-icon {
+      font-size: 18px;
     }
   }
 }

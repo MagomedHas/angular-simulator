@@ -9,11 +9,10 @@ import { FooterComponent } from '../footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 import { MessagesComponent } from '../messages/messages.component';
 import { LoaderComponent } from '../loader/loader.component';
-import { BadgeDirective } from 'primeng/badge';
 
 @Component({
   selector: 'app-root',
-  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent, BadgeDirective],
+  imports: [AsyncPipe, FormsModule, HeaderComponent, FooterComponent, RouterOutlet, MessagesComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
