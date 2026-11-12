@@ -19,6 +19,16 @@ export class StorageService {
     }
   }
 
+  getOrSet<T>(key: string, defaultValue: T): T {
+    const existingValue = this.get<T>(key)
+    if (existingValue !== null) {
+      return existingValue;
+    }
+
+    this.set(key, defaultValue);
+    return defaultValue;
+  }
+
   remove(key: string): void {
     localStorage.removeItem(key)
   }
