@@ -25,6 +25,30 @@
   --small-border-radius: 4px;
 }
 
+:root.app-dark {
+  --primary-font-color: #E8F0ED;
+  --secondary-font-color: #F2BE22;
+  --link-font-color: #8DD8C4;
+
+  --header-color: #101D1CCC;
+
+  --footer-color: #122D2C;
+  --below-footer-color: #0A1717;
+
+  --primary-block-color: #101D1C;
+  --secondary-block-color: #1C2B2A;
+  --travel-block-color: #142221;
+  --search-block-color: #FFFFFF1A;
+  --loading-block-color: #344542;
+
+  --font-button-color: #FFFFFF;
+  --background-button-color: #386963;
+}
+
+:root.app-dark .destinations {
+  --link-font-color: #1A3E3E;
+}
+
 .hike .frame_with_img {
   --border-radius: 24px;
 }

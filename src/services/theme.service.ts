@@ -9,6 +9,7 @@ import { ColorMode } from '../enums/ColorMode';
 })
 export class ThemeService {
 
+  private readonly darkModeClass: string = 'app-dark';
   private readonly storageService: StorageService = inject(StorageService);
   private readonly themeSubject: BehaviorSubject<Theme> = new BehaviorSubject<Theme>(
     this.storageService.getOrSet<Theme>("Theme", Theme.AURA)
@@ -22,9 +23,16 @@ export class ThemeService {
 
   constructor() {
     this.themeSubject.subscribe(theme => {this.storageService.set("Theme", theme);});
-    this.colorModeSubject.subscribe(mode => {this.storageService.set("ColorMode", mode);});
+    this.colorModeSubject.subscribe(mode => {
+      this.storageService.set("ColorMode", mode);
+      
+      document.documentElement.classList.toggle(
+        this.darkModeClass,
+        mode === ColorMode.DARK
+      )});
+
   }
-  
+
   setTheme(theme: Theme) {
     this.themeSubject.next(theme);
   }
