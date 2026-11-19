@@ -7,6 +7,7 @@
   --footer-font-color: #FFFFFF;
   --error-font-color: red;
 
+
   --header-color: #18121E80;
 
   --footer-color: #1A3E3E;
@@ -22,6 +23,30 @@
   --font-button-color: #FDFDFD;
   --background-button-color: #1A3E3E;
   --small-border-radius: 4px;
+}
+
+:root.app-dark {
+  --primary-font-color: #E8F0ED;
+  --secondary-font-color: #F2BE22;
+  --link-font-color: #8DD8C4;
+
+  --header-color: #101D1CCC;
+
+  --footer-color: #122D2C;
+  --below-footer-color: #0A1717;
+
+  --primary-block-color: #101D1C;
+  --secondary-block-color: #1C2B2A;
+  --travel-block-color: #142221;
+  --search-block-color: #FFFFFF1A;
+  --loading-block-color: #344542;
+
+  --font-button-color: #FFFFFF;
+  --background-button-color: #386963;
+}
+
+:root.app-dark .destinations {
+  --link-font-color: #1A3E3E;
 }
 
 .hike .frame_with_img {
@@ -49,4 +74,15 @@
 .user {
   --border-color: #D4A373;
 
+}
+
+:root.app-dark .users {
+  --primary-font-color: #D3E6E2;
+  --grey-font-color: #A6BBB6;
+  --contrasting-font-color: #EDB87C;
+  --h-stripe-color: #3C5150;
+}
+
+:root.app-dark .user {
+  --border-color: #BD8C57;
 }

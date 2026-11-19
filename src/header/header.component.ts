@@ -1,12 +1,21 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, inject, input, InputSignal } from '@angular/core';
 import { IPage } from '../interfaces/IPage';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
+import { ColorMode } from '../enums/ColorMode';
+import { FormsModule } from '@angular/forms';
+import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
+import { ThemeComponent } from '../theme/theme.component';
 
 @Component({
   selector: 'app-header',
   imports: [
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    ThemeComponent,
+    FormsModule,
+
+
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -14,10 +23,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
 
 
+  protected readonly ColorMode = ColorMode;
+  protected readonly faSun = faSun;
+  protected readonly faMoon = faMoon;
+
+  themeService: ThemeService = inject(ThemeService)
   companyName: InputSignal<string> = input<string>('companyName');
   module: string = 'watch';
   clock: string = '';
   counter: number = 0;
+
+
 
   pages: IPage[] = [
     {

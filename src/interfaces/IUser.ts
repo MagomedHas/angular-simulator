@@ -21,3 +21,39 @@ export interface IUser {
     readonly bs: string;
   }
 }
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isUser(value: unknown): value is IUser {
+  if (!isRecord(value)) return false;
+
+  const { address, company } = value;
+  if (!isRecord(address) || !isRecord(company)) return false;
+
+  const { geo } = address;
+  return (
+    typeof value['id'] === 'number' &&
+    Number.isFinite(value['id']) &&
+    typeof value['name'] === 'string' &&
+    typeof value['username'] === 'string' &&
+    typeof value['email'] === 'string' &&
+    typeof value['phone'] === 'string' &&
+    typeof value['website'] === 'string' &&
+    typeof address['street'] === 'string' &&
+    typeof address['suite'] === 'string' &&
+    typeof address['city'] === 'string' &&
+    typeof address['zipcode'] === 'string' &&
+    isRecord(geo) &&
+    typeof geo['lat'] === 'string' &&
+    typeof geo['lng'] === 'string' &&
+    typeof company['name'] === 'string' &&
+    typeof company['catchPhrase'] === 'string' &&
+    typeof company['bs'] === 'string'
+  );
+}
+
+export function isUserArray(value: unknown): value is IUser[] {
+  return Array.isArray(value) && value.every(isUser);
+}

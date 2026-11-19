@@ -6,45 +6,55 @@
     <div class="search__inner">
       <form class="search__form" id="search__form">
         <div class="search__cell">
-          <select
-            [(ngModel)]="tourInput"
-            id="location"
-            name="location"
-            required
-          >
-            <option disabled selected value="">Локация для тура</option>
-            <option value="1">тур 1</option>
-            <option value="2">тур 2</option>
-          </select>
+
+          <div class="input-box">
+            <fa-icon [icon]="faAngleDown" />
+            <select
+              [(ngModel)]="tourInput"
+              id="location"
+              name="location"
+              required
+            >
+              <option disabled selected value="">Локация для тура</option>
+              <option value="1">тур 1</option>
+              <option value="2">тур 2</option>
+            </select>
+          </div>
           <label for="location">выберите из списка</label>
         </div>
         <div class="search__cell">
-          <input
-            [(ngModel)]="dateInput"
-            class="hike_date"
-            id="hike_date"
-            name="hike_date"
-            required
-            type="date"
-          />
+          <div class="input-box input-box_calendar">
+            <fa-icon [icon]="faCalendar" />
+            <input
+              [(ngModel)]="dateInput"
+              class="hike_date"
+              id="hike_date"
+              name="hike_date"
+              required
+              type="date"
+            />
+          </div>
           <label for="hike_date">укажите дату</label>
         </div>
         <div class="search__cell">
-          <select
-            [(ngModel)]="participantsInput"
-            id="participants"
-            multiple
-            name="participants"
-            required
-            size="1"
-          >
-            <option disabled selected value="">Участники</option>
-            <option value="1">Участники</option>
-            <option value="2">Участники</option>
-            <option value="3">Участники</option>
-            <option value="4">Участники</option>
-            <option value="5">Участники</option>
+          <div class="input-box">
+            <fa-icon [icon]="faAngleDown" />
+            <select
+              [(ngModel)]="participantsInput"
+              id="participants"
+              multiple
+              name="participants"
+              required
+              size="1"
+            >
+              <option disabled selected value="">Участники</option>
+              <option value="1">Участники</option>
+              <option value="2">Участники</option>
+              <option value="3">Участники</option>
+              <option value="4">Участники</option>
+              <option value="5">Участники</option>
           </select>
+          </div>
           <label for="participants">минимум 4 человека</label>
         </div>
         <button [disabled]="!isFormValid()" class="primary-button" id="search-button">Найти программу</button>
@@ -52,7 +62,7 @@
     </div>
     <div class="live-input">
       <div class="input-box">
-        <img alt="Живой инпут" src="/icon/arrow-select_icon.svg">
+        <fa-icon [icon]="faAngleRight" />
         <input
           (input)="liveOutput = liveInput;"
           [(ngModel)]="liveInput"
@@ -74,7 +84,7 @@
       <div class="hike__visual  frame_with_img placeholder_player">
         <img src="/images/house_forest.png" alt="house_forest">
         <button class="placeholder_player__button-play" id="play-botton">
-          <img alt="play-botton" src="/icon/play_icon.svg">
+          <fa-icon [icon]="faCirclePlay" alt="play-botton" />
         </button>
       </div>
     </div>
@@ -143,7 +153,7 @@
         <li class="destinations__item destination frame_with_img">
           <img [alt]="destination.title" [src]="`/images/destinations/${destination.image}.png`">
           <div class="destination__rating">
-            <img class="destination__star" alt="star" src="/icon/round-star_icon.svg">
+            <fa-icon [icon]="faStar" alt="star" class="destination__star"/>
             <span>{{ destination.rating.toFixed(1) }}</span>
           </div>
           <div class="destination__content">

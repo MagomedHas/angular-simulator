@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterOutlet } from '@angular/router';
-import {MessagesComponent} from '../messages/messages.component';
+import { MessagesComponent } from '../messages/messages.component';
 import { LoaderComponent } from '../loader/loader.component';
 
 @Component({

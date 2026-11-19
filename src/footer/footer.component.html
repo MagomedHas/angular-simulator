@@ -34,16 +34,16 @@
         </address>
         <div class="footer__social-media">
           <a href="/" id="telegram">
-            <img alt="telegram" src="/icon/social-media/telegram_icon.svg">
+            <fa-icon [icon]="faTelegram" alt="Telegram" />
           </a>
           <a href="/" id="vk__social-media">
-            <img alt="vk" src="/icon/social-media/vk_icon.svg">
+            <fa-icon [icon]="faVk" alt="vk" />
           </a>
           <a href="/" id="pinterest__social-media">
-            <img alt="pinterest" src="/icon/social-media/pinterest_icon.svg">
+            <fa-icon [icon]="faPinterest" alt="pinterest" />
           </a>
           <a href="/" id="skype__social-media">
-            <img alt="skype" src="/icon/social-media/skype_icon.svg">
+            <fa-icon [icon]="faSkype" alt="skype" />
           </a>
         </div>
       </div>
@@ -51,21 +51,23 @@
         <div class="footer__secondery">
           <h2>Наши услуги</h2>
           <ul class="footer__services-list">
-            <li class="footer__services-item">Прогулки в горы летом</li>
-            <li class="footer__services-item">Зимние походы в горы</li>
-            <li class="footer__services-item">Посещение храмов в горах</li>
-            <li class="footer__services-item">Экстремальные виды туризма</li>
-            <li class="footer__services-item">Походы в джунглях Амазонии</li>
-            <li class="footer__services-item">Поездка в Африку</li>
+            @for (item of services; track $index) {
+              <li class="footer__services-item">
+                <fa-icon [icon]="faChevronRight"/>
+                {{ item }}
+              </li>
+            }
           </ul>
         </div>
         <div class="footer__secondery">
           <h2>Важно для путешествий</h2>
           <ul class="footer__important-list">
-            <li class="footer__important-item">Как собрать в долгий поход?</li>
-            <li class="footer__important-item">Жизненно важные предметы для похода</li>
-            <li class="footer__important-item">Медицинская страховка, гарантии безопасности</li>
-            <li class="footer__important-item">Если вы врач - загляните сюда</li>
+            @for (item of importants; track $index) {
+              <li class="footer__important-item">
+                <fa-icon [icon]="faChevronRight"/>
+                {{ item }}
+              </li>
+            }
           </ul>
         </div>
 
