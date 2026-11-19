@@ -13,23 +13,10 @@
             <a [routerLink]="page.href">{{ page.name }}</a>
           </li>
         }
-        <p-toggleswitch
-          [ngModel]="(themeService.colorMode$ | async) === ColorMode.DARK"
-          (ngModelChange)="$event
-            ? themeService.setColorMode(ColorMode.DARK)
-            : themeService.setColorMode(ColorMode.LIGHT)"
-        >
-          <ng-template #handle let-checked="checked">
-          @if (checked) {
-            <fa-icon [icon]="faMoon"/>
-          } @else {
-            <fa-icon [icon]="faSun"/>
-          }
-        </ng-template>
-        </p-toggleswitch>
       </ul>
     </nav>
     <button class="header__button inverted-button">Консультация</button>
+    <app-theme/>
     @if (module === 'watch') {
       <div class="header__module module">
         <p>{{ clock }}</p>

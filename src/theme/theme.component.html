@@ -1,0 +1,25 @@
+
+<div class="theme">
+  <p-toggleswitch
+    [ngModel]="(themeService.colorMode$ | async) === ColorMode.DARK"
+    (ngModelChange)="$event
+            ? themeService.setColorMode(ColorMode.DARK)
+            : themeService.setColorMode(ColorMode.LIGHT)"
+  >
+    <ng-template #handle let-checked="checked">
+      @if (checked) {
+        <fa-icon [icon]="faMoon"/>
+      } @else {
+        <fa-icon [icon]="faSun"/>
+      }
+    </ng-template>
+  </p-toggleswitch>
+  <p-selectbutton
+    [options]="stateOptions"
+    [ngModel]="(themeService.theme$ | async)"
+    [allowEmpty]="false"
+    (ngModelChange)="themeService.setTheme($event)"
+    optionLabel="label"
+    optionValue="value"
+    aria-labelledby="basic" />
+</div>

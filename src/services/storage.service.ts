@@ -9,19 +9,21 @@ export class StorageService {
     localStorage.setItem(key, JSON.stringify(value))
   }
 
-  get<T>(key: string): T | null {
+  get<T>(key: string, isValid: (value: unknown) => value is T): T | null{
     const value: string | null = localStorage.getItem(key);
     if (value === null) return null;
     try {
-      return JSON.parse(value);
+      const result: unknown = JSON.parse(value);
+      if (!isValid(result)) return null;
+      return result;
     } catch {
       return null;
     }
   }
 
-  getOrSet<T>(key: string, defaultValue: T): T {
-    const existingValue = this.get<T>(key)
-    if (existingValue !== null) {
+  getOrSet<T>(key: string, defaultValue: T, isValid: (value: unknown) => value is T): T {
+    const existingValue = this.get<T>(key, isValid);
+    if (existingValue !== null ) {
       return existingValue;
     }
 

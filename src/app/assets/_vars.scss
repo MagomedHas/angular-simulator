@@ -75,3 +75,14 @@
   --border-color: #D4A373;
 
 }
+
+:root.app-dark .users {
+  --primary-font-color: #D3E6E2;
+  --grey-font-color: #A6BBB6;
+  --contrasting-font-color: #EDB87C;
+  --h-stripe-color: #3C5150;
+}
+
+:root.app-dark .user {
+  --border-color: #BD8C57;
+}

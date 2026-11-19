@@ -154,8 +154,6 @@ footer {
 
 .footer__services-list,
 .footer__important-list {
-  list-style-position: inside;
-  list-style-image: url("/icon/right-arrow_icon.svg");
   display: flex;
   flex-direction: column;
   gap: 16px;

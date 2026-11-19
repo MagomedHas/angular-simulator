@@ -1,23 +1,21 @@
 import { Component, inject, input, InputSignal } from '@angular/core';
 import { IPage } from '../interfaces/IPage';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ToggleSwitch } from 'primeng/toggleswitch';
 import { ThemeService } from '../services/theme.service';
 import { ColorMode } from '../enums/ColorMode';
-import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
+import { ThemeComponent } from '../theme/theme.component';
 
 @Component({
   selector: 'app-header',
   imports: [
     RouterLink,
     RouterLinkActive,
-    ToggleSwitch,
-    AsyncPipe,
+    ThemeComponent,
     FormsModule,
-    FaIconComponent
+
+
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
